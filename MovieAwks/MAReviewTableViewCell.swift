@@ -14,6 +14,7 @@ class MAReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
+    
     func setReview(review:MAReview) {
         usernameLabel.text = review.user!
         commentLabel.text = review.comment!

@@ -10,6 +10,7 @@ import UIKit
 
 class MAButtonHeaderView: UIView {
 
+    @IBOutlet weak var submitReviewButton: UIButton!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

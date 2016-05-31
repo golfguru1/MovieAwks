@@ -12,12 +12,13 @@ import SDWebImage
 import FirebaseDatabase
 import Firebase
 
-class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate {
+class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, MAHomeTableViewHeaderViewDelegate {
 
     var movies: Array<MAMovie> = []
     var reviews: Array<MAReview> = []
     var headerView: MAHomeTableViewHeaderView?
     var tableHeader: MAButtonHeaderView?
+    var darkBar: Bool = false
     
     @IBOutlet weak var moviePosterImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -42,16 +43,20 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBarHidden = true
+        
         mm_drawerController.openDrawerGestureModeMask = .BezelPanningCenterView
         mm_drawerController.closeDrawerGestureModeMask = [.PanningCenterView, .TapCenterView]
         
         searchResultsController = UITableViewController.init()
 
         searchController = UISearchController.init(searchResultsController: searchResultsController)
-        searchController!.searchBar.searchBarStyle = .Default
+        searchController!.searchBar.searchBarStyle = .Minimal
         searchController?.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         navigationItem.titleView = searchController?.searchBar
+        searchController!.searchBar.frame = CGRect(x: 0, y: UIApplication.sharedApplication().statusBarFrame.maxY, width: view.bounds.size.width, height: 44)
+        view.addSubview(searchController!.searchBar)
         
         searchResultsController!.tableView.dataSource = self;
         searchResultsController!.tableView.delegate = self;
@@ -60,20 +65,33 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         searchController!.searchBar.delegate = self;
         
         headerView = NSBundle.mainBundle().loadNibNamed("MAHomeTableViewHeaderView", owner: self, options: nil).first as? MAHomeTableViewHeaderView
-        headerView?.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height/2+(navigationController?.navigationBar.bounds.height)!+20)
-        view.addSubview(headerView!)
-        view.sendSubviewToBack(headerView!)
+        headerView?.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
+        headerView?.delegate = self
+        reviewsTableView.backgroundView = headerView
+//        view.addSubview(headerView!)
+//        view.sendSubviewToBack(headerView!)
         
-        let transparentView = UIView.init(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height/2))
-        transparentView.backgroundColor = UIColor.clearColor()
-        reviewsTableView.tableHeaderView = transparentView
+//        let transparentView = UIView.init(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height/2))
+//        transparentView.backgroundColor = UIColor.clearColor()
+//        reviewsTableView.tableHeaderView = transparentView
         
-        tableHeader = NSBundle.mainBundle().loadNibNamed("MAButtonHeaderView", owner: self, options: nil).first as? MAButtonHeaderView
+//        tableHeader = NSBundle.mainBundle().loadNibNamed("MAButtonHeaderView", owner: self, options: nil).first as? MAButtonHeaderView
+        headerView!.submitReviewButton.addTarget(self, action: #selector(MAHomeViewController.submitReviewButtonPressed), forControlEvents: .TouchUpInside)
         
         reviewsTableView.rowHeight = UITableViewAutomaticDimension
         reviewsTableView.estimatedRowHeight = 50
-//        reviewsTableView.contentInset = UIEdgeInsets(top: view.bounds.maxY*2/3, left: 0, bottom: 0, right: 0)
+        reviewsTableView.contentInset = UIEdgeInsets(top: view.bounds.maxY, left: 0, bottom: 0, right: 0)
         
+        
+    }
+    
+    func updateStatusBarWithDark(dark: Bool) {
+        darkBar = dark
+        UIApplication.sharedApplication().setStatusBarStyle(darkBar ? .LightContent : .Default, animated: true)
+    }
+    
+    func submitReviewButtonPressed() {
+        performSegueWithIdentifier(MA_POST_REVIEW_SEGUE, sender: self)
     }
     
     func getReviewsForMovieID(id: NSNumber) {
@@ -135,19 +153,19 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if(tableView == reviewsTableView){
-            return tableHeader!
-        }
-        return UIView()
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(tableView == reviewsTableView){
-            return 50
-        }
-        return 0
-    }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if(tableView == reviewsTableView){
+//            return tableHeader!
+//        }
+//        return UIView()
+//    }
+//    
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if(tableView == reviewsTableView){
+//            return 50
+//        }
+//        return 0
+//    }
     
     
     //MARK: UITableViewDelegate
@@ -159,10 +177,18 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         else{
             movie = movies[indexPath.row]
             searchController?.active = false
+            searchController?.searchBar.searchBarStyle = .Minimal
         }
     }
     
     //MARK: UISsearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.searchBarStyle = .Prominent
+    }
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.searchBarStyle = .Minimal
+    }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text! == "") {
@@ -187,6 +213,10 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         var rect = tableHeader?.frame
         rect?.origin.y = min(0, reviewsTableView.contentOffset.y + reviewsTableView.contentInset.top)
         tableHeader?.frame = rect!
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return darkBar ? .LightContent : .Default
     }
     
     

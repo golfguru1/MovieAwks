@@ -195,11 +195,11 @@
                         <viewControllerLayoutGuide type="bottom" id="fVK-bw-Ydl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rvh-Ag-6At">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XgB-of-sBk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XgB-of-sBk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MAReviewTableViewCell" rowHeight="90" id="jhy-Q6-nWa" customClass="MAReviewTableViewCell" customModule="MovieAwks" customModuleProvider="target">
@@ -212,13 +212,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="E6u-jF-BHg">
                                                     <rect key="frame" x="76" y="8" width="31" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNN-Pv-5hx">
                                                     <rect key="frame" x="76" y="23" width="516" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😬" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8y-LH-pBc">
@@ -231,6 +231,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="q8y-LH-pBc" secondAttribute="bottom" id="AOH-Nd-m4g"/>
                                                 <constraint firstAttribute="topMargin" secondItem="E6u-jF-BHg" secondAttribute="top" id="CNq-EI-7Tz"/>
@@ -264,7 +265,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XgB-of-sBk" secondAttribute="trailing" id="UO5-C3-fiq"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XgB-of-sBk" secondAttribute="leading" id="VnK-B9-xC7"/>
                             <constraint firstItem="fVK-bw-Ydl" firstAttribute="top" secondItem="XgB-of-sBk" secondAttribute="bottom" id="bNk-Yd-CfJ"/>
-                            <constraint firstItem="XgB-of-sBk" firstAttribute="top" secondItem="4Yg-He-52D" secondAttribute="bottom" id="eJ9-eX-KfR"/>
+                            <constraint firstItem="XgB-of-sBk" firstAttribute="top" secondItem="4Yg-He-52D" secondAttribute="bottom" constant="-20" id="eJ9-eX-KfR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -275,8 +276,10 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="ryi-fE-sQg"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="reviewsTableView" destination="XgB-of-sBk" id="ysg-Rr-qb7"/>
+                        <segue destination="Jnx-pd-d6s" kind="presentation" identifier="MAPostReviewSegue" id="rfW-cI-bzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejb-hd-adp" userLabel="First Responder" sceneMemberID="firstResponder"/>

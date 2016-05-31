@@ -46,6 +46,9 @@
                     <exclude reference="wL4-dk-B4W"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="submitReviewButton" destination="LZj-fV-mY1" id="sQE-Tu-8mt"/>
+            </connections>
             <point key="canvasLocation" x="553" y="115.5"/>
         </view>
     </objects>
