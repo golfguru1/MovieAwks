@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import Firebase
+import FirebaseDatabase
 
 class MAMovieSearchCell: UITableViewCell {
 
@@ -15,6 +17,7 @@ class MAMovieSearchCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var emojiLabel: UILabel!
     
     func setMovie(movie:MAMovie) {
 
@@ -25,6 +28,52 @@ class MAMovieSearchCell: UITableViewCell {
         }
         else {
             posterImageView.image = UIImage(named: "blankMovie")
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            let database = FIRDatabase.database().reference()
+            let reviews = database.child("movies").queryOrderedByChild("movieID").queryEqualToValue(movie.id)
+            reviews.observeSingleEventOfType(.Value, withBlock: {(snapshot) in
+                var reviews = Array<MAReview>()
+                var sumOfReviews = 0
+                if let reviewsDict = snapshot.value as? Dictionary<String, Dictionary<String,AnyObject>> {
+                    for (_, review) in reviewsDict {
+                        let reviewOBJ = MAReview.init(dict: review)
+                        sumOfReviews += (reviewOBJ.ratingValue?.integerValue)!
+                        reviews.append(reviewOBJ)
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    var ratingVal = -1
+                    if reviews.count > 0 {
+                        ratingVal = sumOfReviews/reviews.count
+                    }
+                    
+                    if (ratingVal < 0) {
+                        self.emojiLabel.text = "-"
+                    }
+                    else if (ratingVal < 2) {
+                        self.emojiLabel.text = "😇"
+                    }
+                    else if (ratingVal < 4) {
+                        self.emojiLabel.text = "😐"
+                    }
+                    else if (ratingVal < 6) {
+                        self.emojiLabel.text = "😔"
+                    }
+                    else if (ratingVal < 8) {
+                        self.emojiLabel.text = "😬"
+                    }
+                    else if (ratingVal < 10) {
+                        self.emojiLabel.text = "😵"
+                    }
+                    else {
+                        self.emojiLabel.text = "💀"
+                    }
+                    
+                }
+            })
         }
     }
 }

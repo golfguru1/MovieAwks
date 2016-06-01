@@ -17,7 +17,6 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     var movies: Array<MAMovie> = []
     var reviews: Array<MAReview> = []
     var headerView: MAHomeTableViewHeaderView?
-    var tableHeader: MAButtonHeaderView?
     var darkBar: Bool = false
     
     @IBOutlet weak var moviePosterImageView: UIImageView!
@@ -82,6 +81,8 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         reviewsTableView.rowHeight = UITableViewAutomaticDimension
         reviewsTableView.estimatedRowHeight = 50
         reviewsTableView.contentInset = UIEdgeInsets(top: view.bounds.maxY, left: 0, bottom: 0, right: 0)
+        
+        notSearching()
     }
     
     func showKeyboard() {
@@ -140,6 +141,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         })
         
     }
+
     
     
     //MARK: UITableViewDataSource
@@ -157,7 +159,9 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
             let cell  = tableView.dequeueReusableCellWithIdentifier(MA_REVIEW_TABLE_VIEW_CELL, forIndexPath: indexPath) as! MAReviewTableViewCell
             
             cell.setReview(reviews[indexPath.row])
-            
+            cell.separatorInset = UIEdgeInsetsMake(0, cell.bounds.size.width, 0, 0);
+            cell.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+            cell.contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
             return cell
         }
         

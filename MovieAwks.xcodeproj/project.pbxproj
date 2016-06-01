@@ -13,8 +13,6 @@
 		A70FB58B1CFA05F9006D46CC /* MAReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FB58A1CFA05F9006D46CC /* MAReview.swift */; };
 		A723388F1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */; };
 		A72338911CFA86E20039C94A /* MAHomeTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */; };
-		A72338931CFB3B2C0039C94A /* MAButtonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72338921CFB3B2C0039C94A /* MAButtonHeaderView.xib */; };
-		A72338951CFB3B3C0039C94A /* MAButtonHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72338941CFB3B3C0039C94A /* MAButtonHeaderView.swift */; };
 		A740293C1CF7848300AFC3DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740293B1CF7848300AFC3DD /* AppDelegate.swift */; };
 		A740293E1CF7848300AFC3DD /* MASignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */; };
 		A74029411CF7848300AFC3DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A740293F1CF7848300AFC3DD /* Main.storyboard */; };
@@ -41,8 +39,6 @@
 		A70FB58A1CFA05F9006D46CC /* MAReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAReview.swift; sourceTree = "<group>"; };
 		A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAHomeTableViewHeaderView.swift; sourceTree = "<group>"; };
 		A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAHomeTableViewHeaderView.xib; sourceTree = "<group>"; };
-		A72338921CFB3B2C0039C94A /* MAButtonHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAButtonHeaderView.xib; sourceTree = "<group>"; };
-		A72338941CFB3B3C0039C94A /* MAButtonHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAButtonHeaderView.swift; sourceTree = "<group>"; };
 		A74029381CF7848200AFC3DD /* MovieAwks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAwks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A740293B1CF7848300AFC3DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASignUpViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 				A740293F1CF7848300AFC3DD /* Main.storyboard */,
 				A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */,
 				A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */,
-				A72338941CFB3B3C0039C94A /* MAButtonHeaderView.swift */,
-				A72338921CFB3B2C0039C94A /* MAButtonHeaderView.xib */,
 				A74029521CF78B3400AFC3DD /* Supporting Files */,
 			);
 			path = MovieAwks;
@@ -214,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72338911CFA86E20039C94A /* MAHomeTableViewHeaderView.xib in Resources */,
-				A72338931CFB3B2C0039C94A /* MAButtonHeaderView.xib in Resources */,
 				A74029461CF7848300AFC3DD /* LaunchScreen.storyboard in Resources */,
 				A740294E1CF784A000AFC3DD /* GoogleService-Info.plist in Resources */,
 				A74029621CF7AF7600AFC3DD /* MAMovieSearchCell.xib in Resources */,
@@ -292,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A74029601CF7AF6300AFC3DD /* MAMovieSearchCell.swift in Sources */,
-				A72338951CFB3B3C0039C94A /* MAButtonHeaderView.swift in Sources */,
 				A70FB5871CF88C40006D46CC /* MAReviewTableViewCell.swift in Sources */,
 				A740295A1CF7955700AFC3DD /* MAHomeViewController.swift in Sources */,
 				A74029581CF7906800AFC3DD /* MADisplayNameViewController.swift in Sources */,
