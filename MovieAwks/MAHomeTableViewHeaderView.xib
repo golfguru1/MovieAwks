@@ -58,7 +58,9 @@
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-t1-YFe">
                                             <rect key="frame" x="200" y="0.0" width="200" height="70"/>
-                                            <state key="normal" title="Submit Review"/>
+                                            <state key="normal" title="Submit Review">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-8B-Iia">
                                             <rect key="frame" x="400" y="0.0" width="200" height="70"/>

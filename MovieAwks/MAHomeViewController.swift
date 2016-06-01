@@ -35,15 +35,15 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     }
     var searchController: UISearchController?
     var searchResultsController: UITableViewController?
+    var firstLoad: Bool = true
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        performSelector(#selector(MAHomeViewController.showKeyboard), withObject: nil, afterDelay: 0.1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBarHidden = true
         
         mm_drawerController.openDrawerGestureModeMask = .BezelPanningCenterView
         mm_drawerController.closeDrawerGestureModeMask = [.PanningCenterView, .TapCenterView]
@@ -53,36 +53,59 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         searchController = UISearchController.init(searchResultsController: searchResultsController)
         searchController!.searchBar.searchBarStyle = .Minimal
         searchController?.hidesNavigationBarDuringPresentation = false
+        
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        blurView.frame = (searchResultsController?.tableView.bounds)!
+//        searchResultsController?.view.insertSubview(blurView, atIndex: 0)
+        
+        searchController?.view.insertSubview(blurView, atIndex: 0)
         definesPresentationContext = true
         navigationItem.titleView = searchController?.searchBar
-        searchController!.searchBar.frame = CGRect(x: 0, y: UIApplication.sharedApplication().statusBarFrame.maxY, width: view.bounds.size.width, height: 44)
-        view.addSubview(searchController!.searchBar)
         
         searchResultsController!.tableView.dataSource = self;
         searchResultsController!.tableView.delegate = self;
+        searchResultsController?.modalPresentationStyle = .OverCurrentContext
+        searchResultsController?.tableView.backgroundColor = UIColor.clearColor()
+        
         searchResultsController!.tableView.registerNib(UINib(nibName: "MAMovieSearchCell", bundle: nil), forCellReuseIdentifier: MA_MOVIE_SEARCH_CELL)
         searchController!.delegate = self;
         searchController!.searchBar.delegate = self;
         
         headerView = NSBundle.mainBundle().loadNibNamed("MAHomeTableViewHeaderView", owner: self, options: nil).first as? MAHomeTableViewHeaderView
-        headerView?.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
+        headerView?.frame = view.bounds
         headerView?.delegate = self
         reviewsTableView.backgroundView = headerView
-//        view.addSubview(headerView!)
-//        view.sendSubviewToBack(headerView!)
         
-//        let transparentView = UIView.init(frame: CGRectMake(0, 0, view.bounds.width, view.bounds.height/2))
-//        transparentView.backgroundColor = UIColor.clearColor()
-//        reviewsTableView.tableHeaderView = transparentView
-        
-//        tableHeader = NSBundle.mainBundle().loadNibNamed("MAButtonHeaderView", owner: self, options: nil).first as? MAButtonHeaderView
         headerView!.submitReviewButton.addTarget(self, action: #selector(MAHomeViewController.submitReviewButtonPressed), forControlEvents: .TouchUpInside)
         
         reviewsTableView.rowHeight = UITableViewAutomaticDimension
         reviewsTableView.estimatedRowHeight = 50
         reviewsTableView.contentInset = UIEdgeInsets(top: view.bounds.maxY, left: 0, bottom: 0, right: 0)
-        
-        
+    }
+    
+    func showKeyboard() {
+        if (firstLoad) {
+            searchController!.searchBar.becomeFirstResponder()
+            searching()
+            firstLoad = false
+        }
+    }
+    
+    func notSearching() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
+        searchController?.searchBar.searchBarStyle = .Minimal
+        updateStatusBarWithDark(darkBar)
+    }
+    
+    func searching() {
+//        navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+//        navigationController?.navigationBar.shadowImage = nil
+//        navigationController?.navigationBar.translucent = false
+        updateStatusBarWithDark(true)
+        searchController?.searchBar.searchBarStyle = .Default
     }
     
     func updateStatusBarWithDark(dark: Bool) {
@@ -109,7 +132,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
                 }
             }
             self.reviewsTableView.reloadData()
-            var ratingVal = 0
+            var ratingVal = -1
             if self.reviews.count > 0 {
                 ratingVal = sumOfReviews/self.reviews.count
             }
@@ -141,6 +164,8 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier(MA_MOVIE_SEARCH_CELL, forIndexPath: indexPath) as! MAMovieSearchCell
         
         cell.setMovie(movies[indexPath.row])
+        cell.backgroundColor = UIColor.clearColor()
+        cell.contentView.backgroundColor = UIColor.clearColor()
         
         return cell
     }
@@ -153,20 +178,6 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         return UITableViewAutomaticDimension
     }
     
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if(tableView == reviewsTableView){
-//            return tableHeader!
-//        }
-//        return UIView()
-//    }
-//    
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if(tableView == reviewsTableView){
-//            return 50
-//        }
-//        return 0
-//    }
-    
     
     //MARK: UITableViewDelegate
     
@@ -177,17 +188,17 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         else{
             movie = movies[indexPath.row]
             searchController?.active = false
-            searchController?.searchBar.searchBarStyle = .Minimal
+            notSearching()
         }
     }
     
-    //MARK: UISsearchBarDelegate
+    //MARK: UISearchBarDelegate
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchBar.searchBarStyle = .Prominent
+        searching()
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.searchBarStyle = .Minimal
+        notSearching()
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -209,16 +220,12 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        var rect = tableHeader?.frame
-        rect?.origin.y = min(0, reviewsTableView.contentOffset.y + reviewsTableView.contentInset.top)
-        tableHeader?.frame = rect!
-    }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return darkBar ? .LightContent : .Default
-    }
+    //MARK: UISearchControllerDelegate
     
+    func didDismissSearchController(searchController: UISearchController) {
+        notSearching()
+    }
     
     //MARK: Navigation
     

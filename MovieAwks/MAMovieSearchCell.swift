@@ -19,7 +19,7 @@ class MAMovieSearchCell: UITableViewCell {
     func setMovie(movie:MAMovie) {
 
         titleLabel.text = movie.title!
-        releaseDateLabel.text = "Released \(movie.releaseDate!)"
+        releaseDateLabel.text = "\(movie.releaseDate!)"
         if let path = movie.posterPath {
             posterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w300\(path)")!, placeholderImage: UIImage(named: "blankMovie"))
         }

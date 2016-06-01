@@ -22,7 +22,11 @@ class MAHomeTableViewHeaderView: UIView {
     func setMovie(movie:MAMovie, rating:NSNumber) {
         movieRatingLabel.text = "\(rating)/10"
         movietitleLabel.text = movie.title!
-        if (rating.integerValue < 2) {
+        if (rating.integerValue < 0) {
+            movieEmojiLabel.text = "-"
+            movieRatingLabel.text = "-"
+        }
+        else if (rating.integerValue < 2) {
             movieEmojiLabel.text = "😇"
         }
         else if (rating.integerValue < 4) {

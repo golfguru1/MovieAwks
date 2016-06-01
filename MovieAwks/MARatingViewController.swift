@@ -33,11 +33,16 @@ class MARatingViewController: MABaseViewController {
         ratingSlider.setMaxFractionDigitsDisplayed(0)
         ratingSlider.popUpViewAnimatedColors = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.orangeColor(), UIColor.redColor()]
         changeEmojiWithValue(0)
-        // Do any additional setup after loading the view.
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        blurView.frame = view.bounds
+        view.insertSubview(blurView, atIndex: 0)
     }
+    
     @IBAction func sliderChanged(sender: UISlider) {
         changeEmojiWithValue(round(sender.value))
     }
+    
     @IBAction func sliderDone(sender: UISlider) {
 //        sender.setValue(round(sender.value), animated: true)
     }
@@ -85,6 +90,9 @@ class MARatingViewController: MABaseViewController {
         }
     }
 
+    @IBAction func cancelPressed(sender: UIButton) {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

@@ -189,7 +189,7 @@
         <!--Home View Controller-->
         <scene sceneID="lPz-Rq-g0i">
             <objects>
-                <viewController id="GZb-oF-neC" customClass="MAHomeViewController" customModule="MovieAwks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GZb-oF-neC" customClass="MAHomeViewController" customModule="MovieAwks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Yg-He-52D"/>
                         <viewControllerLayoutGuide type="bottom" id="fVK-bw-Ydl"/>
@@ -265,7 +265,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XgB-of-sBk" secondAttribute="trailing" id="UO5-C3-fiq"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XgB-of-sBk" secondAttribute="leading" id="VnK-B9-xC7"/>
                             <constraint firstItem="fVK-bw-Ydl" firstAttribute="top" secondItem="XgB-of-sBk" secondAttribute="bottom" id="bNk-Yd-CfJ"/>
-                            <constraint firstItem="XgB-of-sBk" firstAttribute="top" secondItem="4Yg-He-52D" secondAttribute="bottom" constant="-20" id="eJ9-eX-KfR"/>
+                            <constraint firstItem="XgB-of-sBk" firstAttribute="top" secondItem="4Yg-He-52D" secondAttribute="bottom" constant="-64" id="eJ9-eX-KfR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -274,12 +274,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="ryi-fE-sQg"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="reviewsTableView" destination="XgB-of-sBk" id="ysg-Rr-qb7"/>
-                        <segue destination="Jnx-pd-d6s" kind="presentation" identifier="MAPostReviewSegue" id="rfW-cI-bzA"/>
+                        <segue destination="Jnx-pd-d6s" kind="presentation" identifier="MAPostReviewSegue" modalPresentationStyle="overFullScreen" id="rfW-cI-bzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejb-hd-adp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,33 +297,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OXk-1q-HmR" customClass="ASValueTrackingSlider">
-                                <rect key="frame" x="78" y="198" width="444" height="31"/>
+                                <rect key="frame" x="78" y="210" width="444" height="31"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="Jnx-pd-d6s" eventType="valueChanged" id="w0r-x4-BHL"/>
                                     <action selector="sliderDone:" destination="Jnx-pd-d6s" eventType="touchUpInside" id="BRU-Kz-kwY"/>
                                 </connections>
                             </slider>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-hy-InU">
-                                <rect key="frame" x="40" y="260" width="520" height="246"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="40" y="272" width="520" height="234"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-VO-xbc">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rNm-s7-DdL">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uv-pT-vxV">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="Jnx-pd-d6s" eventType="touchUpInside" id="Y1D-Bw-3c2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-VO-xbc">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="hPQ-Mn-hGA"/>
+                                        </constraints>
+                                        <state key="normal" title="Submit Review">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitPressed:" destination="Jnx-pd-d6s" eventType="touchUpInside" id="GR1-hP-d0c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="hPQ-Mn-hGA"/>
+                                    <constraint firstAttribute="height" constant="44" id="qzN-vG-LvC"/>
                                 </constraints>
-                                <state key="normal" title="Submit Review"/>
-                                <connections>
-                                    <action selector="submitPressed:" destination="Jnx-pd-d6s" eventType="touchUpInside" id="GR1-hP-d0c"/>
-                                </connections>
-                            </button>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="iCe-8O-paa">
-                                <rect key="frame" x="264" y="36" width="72.5" height="36"/>
+                                <rect key="frame" x="264" y="36" width="73" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8K-ks-uKu">
@@ -335,31 +353,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eO5-1v-0Dy" firstAttribute="top" secondItem="5xF-VO-xbc" secondAttribute="bottom" id="2Jq-fd-0aU"/>
-                            <constraint firstItem="5xF-VO-xbc" firstAttribute="leading" secondItem="cIp-O2-Q3a" secondAttribute="leadingMargin" id="40z-OT-MT6"/>
                             <constraint firstItem="iCe-8O-paa" firstAttribute="centerX" secondItem="cIp-O2-Q3a" secondAttribute="centerX" id="6ii-lC-CEC"/>
-                            <constraint firstItem="5xF-VO-xbc" firstAttribute="top" secondItem="Pb0-hy-InU" secondAttribute="bottom" constant="50" id="Cqy-3T-3YA"/>
                             <constraint firstItem="iCe-8O-paa" firstAttribute="top" secondItem="oiW-1p-0zd" secondAttribute="bottom" constant="16" id="DN9-X5-Cp0"/>
                             <constraint firstItem="i8K-ks-uKu" firstAttribute="top" secondItem="iCe-8O-paa" secondAttribute="bottom" constant="8" id="F3z-m5-bxH"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iCe-8O-paa" secondAttribute="trailing" constant="20" id="FcS-V3-dQp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5xF-VO-xbc" secondAttribute="trailing" id="HVz-GI-jcQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OXk-1q-HmR" secondAttribute="trailing" constant="60" id="ROR-5l-jiR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rNm-s7-DdL" secondAttribute="trailing" id="SRR-th-MoO"/>
                             <constraint firstItem="Pb0-hy-InU" firstAttribute="top" secondItem="OXk-1q-HmR" secondAttribute="bottom" constant="32" id="TpY-L3-9bk"/>
                             <constraint firstItem="iCe-8O-paa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cIp-O2-Q3a" secondAttribute="leadingMargin" constant="20" id="UhY-Ps-5LY"/>
                             <constraint firstItem="i8K-ks-uKu" firstAttribute="centerX" secondItem="cIp-O2-Q3a" secondAttribute="centerX" id="WKH-Iy-gpK"/>
-                            <constraint firstAttribute="trailing" secondItem="5xF-VO-xbc" secondAttribute="trailing" id="ZkI-R3-GVj"/>
+                            <constraint firstItem="rNm-s7-DdL" firstAttribute="leading" secondItem="cIp-O2-Q3a" secondAttribute="leading" id="e3L-YE-MTl"/>
+                            <constraint firstAttribute="trailing" secondItem="rNm-s7-DdL" secondAttribute="trailing" id="eIU-lU-Sbd"/>
+                            <constraint firstItem="rNm-s7-DdL" firstAttribute="top" secondItem="Pb0-hy-InU" secondAttribute="bottom" constant="50" id="idD-EA-RA0"/>
                             <constraint firstItem="Pb0-hy-InU" firstAttribute="leading" secondItem="cIp-O2-Q3a" secondAttribute="leadingMargin" constant="20" id="jtz-Ch-y70"/>
-                            <constraint firstItem="OXk-1q-HmR" firstAttribute="top" secondItem="i8K-ks-uKu" secondAttribute="bottom" constant="28" id="mnH-TD-urU"/>
+                            <constraint firstItem="eO5-1v-0Dy" firstAttribute="top" secondItem="rNm-s7-DdL" secondAttribute="bottom" id="lt4-7s-jjx"/>
+                            <constraint firstItem="OXk-1q-HmR" firstAttribute="top" secondItem="i8K-ks-uKu" secondAttribute="bottom" constant="40" id="mnH-TD-urU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pb0-hy-InU" secondAttribute="trailing" constant="20" id="mqK-Zb-G8F"/>
-                            <constraint firstItem="5xF-VO-xbc" firstAttribute="leading" secondItem="cIp-O2-Q3a" secondAttribute="leading" id="qgl-Ir-mgW"/>
                             <constraint firstItem="OXk-1q-HmR" firstAttribute="leading" secondItem="cIp-O2-Q3a" secondAttribute="leadingMargin" constant="60" id="zQ0-7y-LzF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="40z-OT-MT6"/>
-                                <exclude reference="HVz-GI-jcQ"/>
+                                <exclude reference="SRR-th-MoO"/>
                             </mask>
                         </variation>
                     </view>
