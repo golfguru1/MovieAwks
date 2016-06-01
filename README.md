@@ -19,6 +19,7 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 
 ##//TODO
 * **NEW NAME!**
+* Re-do UI for Login/Sign up
 * Design Logo
 * Choose color scheme
 * Choose Font
