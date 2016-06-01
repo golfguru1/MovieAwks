@@ -36,12 +36,18 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-ke-cRU">
-                    <rect key="frame" x="403" y="8" width="26.5" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="I2o-pg-J9T">
+                    <rect key="frame" x="396" y="54.5" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-ke-cRU">
+                    <rect key="frame" x="398" y="8" width="31" height="14.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="fsx-55-vsL"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -57,6 +63,7 @@
                 <constraint firstItem="crQ-7c-vdx" firstAttribute="leading" secondItem="c0j-8O-l3R" secondAttribute="trailing" constant="8" symbolic="YES" id="4eE-34-6vk"/>
                 <constraint firstItem="c0j-8O-l3R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7Tt-pK-4vr"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8JU-GO-Bi9"/>
+                <constraint firstItem="I2o-pg-J9T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="crQ-7c-vdx" secondAttribute="trailing" constant="8" id="8YN-EH-4CC"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="top" secondItem="c0j-8O-l3R" secondAttribute="top" id="CRl-yD-QUf"/>
                 <constraint firstAttribute="bottom" secondItem="c0j-8O-l3R" secondAttribute="bottom" constant="8" id="LBb-mR-tgO"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tkj-f1-CPt" secondAttribute="trailing" constant="8" id="QZo-Xq-l6p"/>
@@ -65,8 +72,10 @@
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="top" secondItem="c0j-8O-l3R" secondAttribute="top" id="agS-sL-cAO"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ai6-Mh-3G7"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="leading" secondItem="c0j-8O-l3R" secondAttribute="trailing" constant="8" symbolic="YES" id="eYi-qg-cge"/>
+                <constraint firstItem="I2o-pg-J9T" firstAttribute="baseline" secondItem="crQ-7c-vdx" secondAttribute="baseline" id="ouy-Lf-lQ5"/>
                 <constraint firstAttribute="trailing" secondItem="SMP-ke-cRU" secondAttribute="trailing" constant="20" symbolic="YES" id="oye-Cp-nsG"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tht-wv-xwT"/>
+                <constraint firstItem="I2o-pg-J9T" firstAttribute="trailing" secondItem="SMP-ke-cRU" secondAttribute="trailing" id="xi9-gD-e3d"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -79,6 +88,7 @@
             </variation>
             <connections>
                 <outlet property="emojiLabel" destination="crQ-7c-vdx" id="fB2-7e-Vz7"/>
+                <outlet property="genresLabel" destination="I2o-pg-J9T" id="47C-CK-8eM"/>
                 <outlet property="posterImageView" destination="c0j-8O-l3R" id="LRI-uU-tR0"/>
                 <outlet property="releaseDateLabel" destination="SMP-ke-cRU" id="Z7z-lD-EmL"/>
                 <outlet property="titleLabel" destination="tkj-f1-CPt" id="TIx-MI-B3v"/>

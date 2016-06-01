@@ -72,6 +72,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A72338961CFF70760039C94A /* Sign up/in flow */ = {
+			isa = PBXGroup;
+			children = (
+				A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */,
+				A74029531CF78DD500AFC3DD /* MASignInViewController.swift */,
+				A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */,
+			);
+			name = "Sign up/in flow";
+			sourceTree = "<group>";
+		};
+		A72338971CFF70860039C94A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A740295F1CF7AF6300AFC3DD /* MAMovieSearchCell.swift */,
+				A74029611CF7AF7600AFC3DD /* MAMovieSearchCell.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		A72338981CFF708F0039C94A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A740295D1CF7AF2500AFC3DD /* MAMovie.swift */,
+				A70FB58A1CFA05F9006D46CC /* MAReview.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A72338991CFF74B30039C94A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A74029591CF7955700AFC3DD /* MAHomeViewController.swift */,
+				A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */,
+				A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		A740292F1CF7848200AFC3DD = {
 			isa = PBXGroup;
 			children = (
@@ -97,20 +135,14 @@
 				A740293B1CF7848300AFC3DD /* AppDelegate.swift */,
 				A74029631CF7B23F00AFC3DD /* MANetworkingManager.swift */,
 				A74029501CF78B2600AFC3DD /* MABaseViewController.swift */,
-				A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */,
-				A74029531CF78DD500AFC3DD /* MASignInViewController.swift */,
-				A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */,
-				A74029591CF7955700AFC3DD /* MAHomeViewController.swift */,
-				A740295D1CF7AF2500AFC3DD /* MAMovie.swift */,
-				A70FB58A1CFA05F9006D46CC /* MAReview.swift */,
-				A740295F1CF7AF6300AFC3DD /* MAMovieSearchCell.swift */,
+				A72338961CFF70760039C94A /* Sign up/in flow */,
+				A72338991CFF74B30039C94A /* Home */,
+				A72338981CFF708F0039C94A /* Models */,
+				A72338971CFF70860039C94A /* Search */,
 				A740295B1CF7984900AFC3DD /* MAProfileViewController.swift */,
 				A70FB5861CF88C40006D46CC /* MAReviewTableViewCell.swift */,
 				A70FB5881CF8A8F2006D46CC /* MARatingViewController.swift */,
-				A74029611CF7AF7600AFC3DD /* MAMovieSearchCell.xib */,
 				A740293F1CF7848300AFC3DD /* Main.storyboard */,
-				A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */,
-				A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */,
 				A74029521CF78B3400AFC3DD /* Supporting Files */,
 			);
 			path = MovieAwks;

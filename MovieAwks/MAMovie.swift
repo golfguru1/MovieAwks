@@ -17,6 +17,7 @@ class MAMovie: NSObject {
     var id: NSNumber?
     var releaseDate: String?
     var tagline: String?
+    var genres: Array<NSNumber>?
     
     override init() {
         super.init()
@@ -32,6 +33,7 @@ class MAMovie: NSObject {
         releaseDate = dict["release_date"] as? String
         backdropPath = dict["backdrop_path"] as? String
         tagline = dict["tagline"] as? String
+        genres = dict["genre_ids"] as? Array<NSNumber>
         
     }
     

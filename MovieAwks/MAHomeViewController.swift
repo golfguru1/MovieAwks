@@ -20,6 +20,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     var darkBar: Bool = false
     
     @IBOutlet weak var moviePosterImageView: UIImageView!
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieDateLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
@@ -83,6 +84,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         reviewsTableView.contentInset = UIEdgeInsets(top: view.bounds.maxY, left: 0, bottom: 0, right: 0)
         
         notSearching()
+        getGenres()
     }
     
     func showKeyboard() {
@@ -94,19 +96,20 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     }
     
     func notSearching() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
-        searchController?.searchBar.searchBarStyle = .Minimal
-        updateStatusBarWithDark(darkBar)
+        UIView.animateWithDuration(0.5) { 
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.translucent = true
+            self.searchController?.searchBar.searchBarStyle = .Minimal
+            self.updateStatusBarWithDark(self.darkBar)
+        }
     }
     
     func searching() {
-//        navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
-//        navigationController?.navigationBar.shadowImage = nil
-//        navigationController?.navigationBar.translucent = false
-        updateStatusBarWithDark(true)
-        searchController?.searchBar.searchBarStyle = .Default
+        UIView.animateWithDuration(0.5) { 
+            self.updateStatusBarWithDark(true)
+            self.searchController?.searchBar.searchBarStyle = .Default
+        }
     }
     
     func updateStatusBarWithDark(dark: Bool) {
@@ -159,17 +162,16 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
             let cell  = tableView.dequeueReusableCellWithIdentifier(MA_REVIEW_TABLE_VIEW_CELL, forIndexPath: indexPath) as! MAReviewTableViewCell
             
             cell.setReview(reviews[indexPath.row])
-            cell.separatorInset = UIEdgeInsetsMake(0, cell.bounds.size.width, 0, 0);
-            cell.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-            cell.contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+            
             return cell
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(MA_MOVIE_SEARCH_CELL, forIndexPath: indexPath) as! MAMovieSearchCell
         
         cell.setMovie(movies[indexPath.row])
-        cell.backgroundColor = UIColor.clearColor()
-        cell.contentView.backgroundColor = UIColor.clearColor()
+        if searchView.superview != nil {
+            searchView.removeFromSuperview()
+        }
         
         return cell
     }

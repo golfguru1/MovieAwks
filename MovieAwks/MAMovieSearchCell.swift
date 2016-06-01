@@ -18,6 +18,17 @@ class MAMovieSearchCell: UITableViewCell {
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        backgroundColor = UIColor.clearColor()
+        contentView.backgroundColor = UIColor.clearColor()
+    }
     
     func setMovie(movie:MAMovie) {
 
@@ -29,6 +40,15 @@ class MAMovieSearchCell: UITableViewCell {
         else {
             posterImageView.image = UIImage(named: "blankMovie")
         }
+        
+        var genresString = ""
+        
+        for genreID in movie.genres! {
+            genresString += "\(genresDict[genreID]!), "
+        }
+        genresString = String(genresString.characters.dropLast())
+        genresString = String(genresString.characters.dropLast())
+        genresLabel.text = genresString
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             

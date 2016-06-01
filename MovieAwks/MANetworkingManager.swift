@@ -49,3 +49,28 @@ func parseMovieResult(JSON:Dictionary<String, AnyObject>) -> Array<MAMovie> {
     
     return movies
 }
+
+func genres(completion:(response:AnyObject) ->Void)  {
+    
+    var returnDict = Dictionary<NSNumber, String>()
+    
+    Alamofire.request(.GET, "http://api.themoviedb.org/3/genre/movie/list", parameters: ["api_key" : API_KEY]).responseJSON {
+        response in
+        if (response.result.isSuccess){
+            if let JSON = response.result.value {
+                if let dict = JSON as? Dictionary<String, AnyObject> {
+                    if let genresDict = dict["genres"] as? Array<Dictionary<String,AnyObject>> {
+                        for genre in genresDict {
+                            let id = genre["id"] as! NSNumber
+                            returnDict[id] = genre["name"] as? String
+                        }
+                        completion(response: returnDict)
+                    }
+                }
+            }
+        }
+        let error = NSError.init(domain: "MA", code: 1, userInfo: ["description": "genre error"])
+        completion(response: error)
+    }
+    
+}

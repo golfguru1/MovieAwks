@@ -25,6 +25,19 @@ let MA_POST_REVIEW_SEGUE = "MAPostReviewSegue"
 let MA_MOVIE_SEARCH_CELL = "MAMovieSearchCell"
 let MA_REVIEW_TABLE_VIEW_CELL = "MAReviewTableViewCell"
 
+var genresDict = Dictionary<NSNumber, String>()
+
+func getGenres() {
+    genres { (response) in
+        if response is NSError {
+            
+        }
+        else {
+            genresDict = response as! Dictionary<NSNumber, String>
+        }
+    }
+}
+
 extension UIImage {
     func averageColor() -> UIColor {
         

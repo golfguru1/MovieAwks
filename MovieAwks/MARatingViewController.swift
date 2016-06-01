@@ -37,6 +37,8 @@ class MARatingViewController: MABaseViewController {
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
         blurView.frame = view.bounds
         view.insertSubview(blurView, atIndex: 0)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
@@ -93,14 +95,21 @@ class MARatingViewController: MABaseViewController {
     @IBAction func cancelPressed(sender: UIButton) {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: UITextViewDelegate
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Enter your review here" {
+            textView.text = nil
+            textView.textColor = UIColor.whiteColor()
+        }
     }
-    */
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter your review here"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
 
 }
