@@ -15,7 +15,7 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 * 10 : 💀 (skull is self-explanitory)
 
 ##Current UI
-
+<img src="https://cloud.githubusercontent.com/assets/3711400/15725189/a4d733be-2818-11e6-9b2a-b1d1ba85acd7.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725188/a4d36540-2818-11e6-8e73-e5dde8d38c2c.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725187/a4d19602-2818-11e6-98de-c5ea87c7b06f.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725186/a4d0c75e-2818-11e6-8006-bf3f0978c41d.png" width="23%"></img> 
 
 ##//TODO
 * **NEW NAME!**
