@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import FirebaseAuth
 
 class MAHomeTableViewHeaderView: UIView {
 
@@ -15,7 +16,14 @@ class MAHomeTableViewHeaderView: UIView {
     @IBOutlet weak var movietitleLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
     @IBOutlet weak var movieEmojiLabel: UILabel!
-    @IBOutlet weak var submitReviewButton: UIButton!
+    @IBOutlet weak var submitReviewButton: UIButton!{
+        didSet{
+            submitReviewButton.titleLabel?.textAlignment = NSTextAlignment.Center
+            submitReviewButton.titleLabel!.numberOfLines = 0;
+            submitReviewButton.titleLabel!.adjustsFontSizeToFitWidth = true;
+            submitReviewButton.titleLabel!.lineBreakMode = .ByWordWrapping;
+        }
+    }
     
     var delegate: MAHomeTableViewHeaderViewDelegate?
     
@@ -23,27 +31,10 @@ class MAHomeTableViewHeaderView: UIView {
         movieRatingLabel.text = "\(rating)/10"
         movietitleLabel.text = movie.title!
         if (rating.integerValue < 0) {
-            movieEmojiLabel.text = "-"
             movieRatingLabel.text = "-"
         }
-        else if (rating.integerValue < 2) {
-            movieEmojiLabel.text = "😇"
-        }
-        else if (rating.integerValue < 4) {
-            movieEmojiLabel.text = "😐"
-        }
-        else if (rating.integerValue < 6) {
-            movieEmojiLabel.text = "😔"
-        }
-        else if (rating.integerValue < 8) {
-            movieEmojiLabel.text = "😬"
-        }
-        else if (rating.integerValue < 10) {
-            movieEmojiLabel.text = "😵"
-        }
-        else {
-            movieEmojiLabel.text = "💀"
-        }
+        
+        movieEmojiLabel.text = emojiForRating(rating.floatValue)
         
         if let path = movie.posterPath {
             moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w600\(path)")!, placeholderImage: UIImage(named: "blankMovie"), completed: { (image, error, type, url) in
@@ -57,6 +48,10 @@ class MAHomeTableViewHeaderView: UIView {
         }
         else {
             moviePosterImageView.image = UIImage(named: "blankMovie")
+        }
+        
+        if FIRAuth.auth()?.currentUser == nil {
+            submitReviewButton.setTitle("Sign up to submit review", forState: .Normal)
         }
 
     }

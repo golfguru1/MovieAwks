@@ -29,24 +29,8 @@ class MAReviewTableViewCell: UITableViewCell {
         usernameLabel.text = review.user!
         commentLabel.text = review.comment!
         
-        if (review.ratingValue?.intValue < 2) {
-            emojiLabel.text = "😇"
-        }
-        else if (review.ratingValue?.intValue < 4) {
-            emojiLabel.text = "😐"
-        }
-        else if (review.ratingValue?.intValue < 6) {
-            emojiLabel.text = "😔"
-        }
-        else if (review.ratingValue?.intValue < 8) {
-            emojiLabel.text = "😬"
-        }
-        else if (review.ratingValue?.intValue < 10) {
-            emojiLabel.text = "😵"
-        }
-        else {
-            emojiLabel.text = "💀"
-        }
+        emojiLabel.text = emojiForRating((review.ratingValue?.floatValue)!)
+        
     }
 
 }

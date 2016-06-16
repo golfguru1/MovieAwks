@@ -75,8 +75,8 @@
 		A72338961CFF70760039C94A /* Sign up/in flow */ = {
 			isa = PBXGroup;
 			children = (
-				A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */,
 				A74029531CF78DD500AFC3DD /* MASignInViewController.swift */,
+				A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */,
 				A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */,
 			);
 			name = "Sign up/in flow";
@@ -131,6 +131,7 @@
 		A740293A1CF7848300AFC3DD /* MovieAwks */ = {
 			isa = PBXGroup;
 			children = (
+				A740293F1CF7848300AFC3DD /* Main.storyboard */,
 				A74029551CF78FB400AFC3DD /* MAConstants.swift */,
 				A740293B1CF7848300AFC3DD /* AppDelegate.swift */,
 				A74029631CF7B23F00AFC3DD /* MANetworkingManager.swift */,
@@ -142,7 +143,6 @@
 				A740295B1CF7984900AFC3DD /* MAProfileViewController.swift */,
 				A70FB5861CF88C40006D46CC /* MAReviewTableViewCell.swift */,
 				A70FB5881CF8A8F2006D46CC /* MARatingViewController.swift */,
-				A740293F1CF7848300AFC3DD /* Main.storyboard */,
 				A74029521CF78B3400AFC3DD /* Supporting Files */,
 			);
 			path = MovieAwks;

@@ -38,7 +38,7 @@ class MARatingViewController: MABaseViewController {
         blurView.frame = view.bounds
         view.insertSubview(blurView, atIndex: 0)
         
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+//        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
@@ -51,24 +51,7 @@ class MARatingViewController: MABaseViewController {
     
     func changeEmojiWithValue(value: Float) {
         //😇😐😔😬😵💀
-        if (value < 2) {
-            ratingEmojiLabel.text = "😇"
-        }
-        else if (value < 4) {
-            ratingEmojiLabel.text = "😐"
-        }
-        else if (value < 6) {
-            ratingEmojiLabel.text = "😔"
-        }
-        else if (value < 8) {
-            ratingEmojiLabel.text = "😬"
-        }
-        else if (value < 10) {
-            ratingEmojiLabel.text = "😵"
-        }
-        else {
-            ratingEmojiLabel.text = "💀"
-        }
+        ratingEmojiLabel.text = emojiForRating(value)
     }
     
     @IBAction func submitPressed(sender: AnyObject) {
@@ -76,7 +59,8 @@ class MARatingViewController: MABaseViewController {
         let review : [String: AnyObject] = ["movieID" : (movie!.id)!,
                                             "ratingValue" : round(ratingSlider.value) as NSNumber,
                                             "user" : (FIRAuth.auth()?.currentUser?.displayName)!,
-                                            "comment" : reviewTextView.text]
+                                            "comment" : reviewTextView.text,
+                                            "email": (FIRAuth.auth()?.currentUser?.email)!]
         
         let database = FIRDatabase.database().reference()
         

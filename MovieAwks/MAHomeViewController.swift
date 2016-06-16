@@ -13,7 +13,7 @@ import FirebaseDatabase
 import Firebase
 
 class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, MAHomeTableViewHeaderViewDelegate {
-
+    
     var movies: Array<MAMovie> = []
     var reviews: Array<MAReview> = []
     var headerView: MAHomeTableViewHeaderView?
@@ -39,17 +39,19 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        performSelector(#selector(MAHomeViewController.showKeyboard), withObject: nil, afterDelay: 0.1)
+        updateButton()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MAHomeViewController.updateButton), name: "DoneSignUp", object: nil)
+        
         mm_drawerController.openDrawerGestureModeMask = .BezelPanningCenterView
         mm_drawerController.closeDrawerGestureModeMask = [.PanningCenterView, .TapCenterView]
         
         searchResultsController = UITableViewController.init()
-
+        
         searchController = UISearchController.init(searchResultsController: searchResultsController)
         searchController!.searchBar.searchBarStyle = .Minimal
         searchController?.hidesNavigationBarDuringPresentation = false
@@ -57,7 +59,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
         blurView.frame = (searchResultsController?.tableView.bounds)!
-//        searchResultsController?.view.insertSubview(blurView, atIndex: 0)
+        //        searchResultsController?.view.insertSubview(blurView, atIndex: 0)
         
         searchController?.view.insertSubview(blurView, atIndex: 0)
         definesPresentationContext = true
@@ -89,36 +91,49 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
     
     func showKeyboard() {
         if (firstLoad) {
-            searchController!.searchBar.becomeFirstResponder()
             searching()
             firstLoad = false
         }
     }
     
+    func updateButton() {
+        if FIRAuth.auth()?.currentUser != nil {
+            headerView!.submitReviewButton.setTitle("Submit Review", forState: .Normal)
+        }
+        else{
+            headerView!.submitReviewButton.setTitle("Sign up to submit review", forState: .Normal)
+        }
+    }
+    
     func notSearching() {
-        UIView.animateWithDuration(0.5) { 
+        UIView.animateWithDuration(0.5) {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
             self.navigationController?.navigationBar.translucent = true
             self.searchController?.searchBar.searchBarStyle = .Minimal
-            self.updateStatusBarWithDark(self.darkBar)
+            //            self.updateStatusBarWithDark(self.darkBar)
         }
     }
     
     func searching() {
-        UIView.animateWithDuration(0.5) { 
-            self.updateStatusBarWithDark(true)
+        UIView.animateWithDuration(0.5) {
+            //            self.updateStatusBarWithDark(true)
             self.searchController?.searchBar.searchBarStyle = .Default
         }
     }
     
     func updateStatusBarWithDark(dark: Bool) {
-        darkBar = dark
-        UIApplication.sharedApplication().setStatusBarStyle(darkBar ? .LightContent : .Default, animated: true)
+        //        darkBar = dark
+        //        UIApplication.sharedApplication().setStatusBarStyle(darkBar ? .LightContent : .Default, animated: true)
     }
     
     func submitReviewButtonPressed() {
-        performSegueWithIdentifier(MA_POST_REVIEW_SEGUE, sender: self)
+        if FIRAuth.auth()?.currentUser != nil {
+            performSegueWithIdentifier(MA_POST_REVIEW_SEGUE, sender: self)
+        }
+        else{
+            performSegueWithIdentifier(MA_SIGN_IN_SEGUE, sender: self)
+        }
     }
     
     func getReviewsForMovieID(id: NSNumber) {
@@ -144,7 +159,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         })
         
     }
-
+    
     
     
     //MARK: UITableViewDataSource
@@ -155,7 +170,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
         }
         return movies.count
     }
-   
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if (tableView == reviewsTableView){
@@ -222,7 +237,7 @@ class MAHomeViewController: MABaseViewController, UITableViewDelegate, UITableVi
                     self.searchResultsController?.tableView.reloadData()
                 }
             }
-
+            
         }
     }
     

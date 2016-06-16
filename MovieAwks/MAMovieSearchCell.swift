@@ -65,33 +65,11 @@ class MAMovieSearchCell: UITableViewCell {
                     }
                 }
                 dispatch_async(dispatch_get_main_queue()) {
-                    var ratingVal = -1
+                    var ratingVal = Float(-1)
                     if reviews.count > 0 {
-                        ratingVal = sumOfReviews/reviews.count
+                        ratingVal = Float(sumOfReviews)/Float(reviews.count)
                     }
-                    
-                    if (ratingVal < 0) {
-                        self.emojiLabel.text = "-"
-                    }
-                    else if (ratingVal < 2) {
-                        self.emojiLabel.text = "😇"
-                    }
-                    else if (ratingVal < 4) {
-                        self.emojiLabel.text = "😐"
-                    }
-                    else if (ratingVal < 6) {
-                        self.emojiLabel.text = "😔"
-                    }
-                    else if (ratingVal < 8) {
-                        self.emojiLabel.text = "😬"
-                    }
-                    else if (ratingVal < 10) {
-                        self.emojiLabel.text = "😵"
-                    }
-                    else {
-                        self.emojiLabel.text = "💀"
-                    }
-                    
+                    self.emojiLabel.text = emojiForRating(ratingVal)
                 }
             })
         }

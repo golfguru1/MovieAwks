@@ -14,19 +14,30 @@ class MASignUpViewController: MABaseViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        blurView.frame = view.bounds
+        view.insertSubview(blurView, atIndex: 0)
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.lightGrayColor().CGColor, UIColor.blackColor().CGColor]
+        view.layer.insertSublayer(gradient, atIndex: 0)
+        
+        navigationController?.navigationBarHidden = true
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
-            self.performSegueWithIdentifier(MA_USER_ALREADY_LOGGED_IN_SEGUE, sender: self)
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
-//        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-//            if let user = user {
-//                self.performSegueWithIdentifier(MA_USER_ALREADY_LOGGED_IN_SEGUE, sender: self)
-//            } else {
-//                // No user is signed in.
-//            }
-//        }
+    }
+    @IBAction func cancelPressed(sender: AnyObject) {
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func signUpPressed(sender: UIButton) {

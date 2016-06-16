@@ -17,6 +17,7 @@ let MA_SHOW_HOME_FROM_SIGN_UP_SEGUE = "MAShowHomeFromSignUpSegue"
 let MA_SIGN_IN_SUCCESS_SEGUE = "MASignInSuccessSegue"
 let MA_USER_ALREADY_LOGGED_IN_SEGUE = "MAUserAlreadyLoggedInSegue"
 let MA_POST_REVIEW_SEGUE = "MAPostReviewSegue"
+let MA_SIGN_IN_SEGUE = "MASignInSegue"
 
 
 //****************************************//
@@ -36,6 +37,28 @@ func getGenres() {
             genresDict = response as! Dictionary<NSNumber, String>
         }
     }
+}
+
+func emojiForRating(rating: Float) -> String{
+    if (rating < 0) {
+        return "-"
+    }
+    else if (rating < 2) {
+        return "😇"
+    }
+    else if (rating < 4) {
+        return "😐"
+    }
+    else if (rating < 6) {
+        return "😔"
+    }
+    else if (rating < 8) {
+        return "😬"
+    }
+    else if (rating < 10) {
+        return "😵"
+    }
+    return "💀"
 }
 
 extension UIImage {

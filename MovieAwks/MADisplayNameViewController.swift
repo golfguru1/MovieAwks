@@ -29,7 +29,9 @@ class MADisplayNameViewController: MABaseViewController {
                 if let error = error {
                     self.showError(error)
                 } else {
-                    self.performSegueWithIdentifier(MA_SHOW_HOME_FROM_SIGN_UP_SEGUE, sender: self)
+                    self.presentingViewController?.dismissViewControllerAnimated(true) {
+                        NSNotificationCenter.defaultCenter().postNotificationName("DoneSignUp", object: nil)
+                    }
                 }
             }
         }
