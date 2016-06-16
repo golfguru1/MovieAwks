@@ -82,7 +82,7 @@ class MAProfileViewController: MABaseViewController {
                 self.userAverageReviewLAbel.text = "Average Review: \(round(ratingVal)) \(emojiForRating(ratingVal))"
             }
             else{
-                self.userAverageReviewLAbel.text = "-"
+                self.userAverageReviewLAbel.text = "Average Review: -"
             }
         })
     }
