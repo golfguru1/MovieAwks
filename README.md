@@ -1,4 +1,6 @@
+
 #MovieAwks
+<img src="https://cloud.githubusercontent.com/assets/3711400/16571008/007804d4-4220-11e6-87dd-480dd2dbdda6.png" width="20%"></img> 
 
 MovieAwks is an app that allows users to see how awkward a movie will be to watch with their family/parents. Awkward-ness is rated on a scale of 😇 to 💀 (see below for rating conversion)
 
@@ -20,10 +22,10 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 <img src="https://cloud.githubusercontent.com/assets/3711400/16131676/5d4d642a-33dd-11e6-82ce-3b8f2aeab01a.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131677/5d4f89b2-33dd-11e6-9026-efee5ee32669.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131675/5d4bb27e-33dd-11e6-9833-a76d90fa60c8.png" width="23%"></img> 
 
 ##//TODO
-* Design Logo
-* App Icon
-* Launch Image
-* Finalize for App Store Release
+* Add "no internet" warnings
+* ~~Design Logo~~ *See Above*
+* ~~App Icon~~
+* ~~Launch Image~~
 * ~~**NEW NAME!**~~ *the name is growing on me, keeping it for now*
 * ~~Re-do UI for Login/Sign up~~ DONE
 * ~~Choose color scheme~~ B&W and gray
