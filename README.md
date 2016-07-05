@@ -22,7 +22,7 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 <img src="https://cloud.githubusercontent.com/assets/3711400/16131676/5d4d642a-33dd-11e6-82ce-3b8f2aeab01a.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131677/5d4f89b2-33dd-11e6-9026-efee5ee32669.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131675/5d4bb27e-33dd-11e6-9833-a76d90fa60c8.png" width="23%"></img> 
 
 ##//TODO
-* Add "no internet" warnings
+* ~~Add "no internet" warnings~~
 * ~~Design Logo~~ *See Above*
 * ~~App Icon~~
 * ~~Launch Image~~
@@ -30,6 +30,23 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 * ~~Re-do UI for Login/Sign up~~ DONE
 * ~~Choose color scheme~~ B&W and gray
 * ~~Choose Font~~ *Futura looks good*
+
+###My Podfile
+
+``` 
+pod 'CRToast', '~> 0.0.7'
+pod 'ASValueTrackingSlider'
+pod 'SDWebImage', '~>3.7'
+pod 'Firebase/Database'
+pod 'MMDrawerController', '~> 0.4.0'
+pod 'MMDrawerController+Storyboard'
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'Alamofire', '~> 3.0'
+pod 'IQKeyboardManager'
+pod 'Firebase'
+pod 'Firebase/Auth'
+```
 
 ##License
 BSD License. PLZ don't steal it and call it your own! But feel free to make changes to make it better!
