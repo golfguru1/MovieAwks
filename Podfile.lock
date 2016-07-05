@@ -3,6 +3,7 @@ PODS:
   - ASValueTrackingSlider (0.11.2)
   - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
+  - CRToast (0.0.9)
   - Fabric (1.6.7)
   - Firebase (3.3.0):
     - Firebase/Core (= 3.3.0)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - ASValueTrackingSlider
   - Crashlytics
+  - CRToast (~> 0.0.7)
   - Fabric
   - Firebase
   - Firebase/Auth
@@ -75,6 +77,7 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   ASValueTrackingSlider: 45c9f78252da60de01d8f2afe869aaf90dd978d9
   Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
+  CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
@@ -91,6 +94,6 @@ SPEC CHECKSUMS:
   MMDrawerController+Storyboard: c98f86c0f32cdef1d466d19a7da3ad2fc6c6ac00
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 598bfd23a14f3e74be56a28356aa2316d1f8960d
+PODFILE CHECKSUM: 69ccde4a1a85ce308edcfb9112bd3625a984f0fe
 
 COCOAPODS: 1.0.0

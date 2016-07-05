@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'MovieAwks' do
 
+pod 'CRToast', '~> 0.0.7'
 pod 'ASValueTrackingSlider'
 pod 'SDWebImage', '~>3.7'
 pod 'Firebase/Database'
