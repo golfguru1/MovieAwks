@@ -14,6 +14,7 @@ class MAReview: NSObject {
     var comment: String?
     var user: String?
     var movieID: String?
+    var timestamp: Date?
 
     override init() {
         super.init()
@@ -25,6 +26,12 @@ class MAReview: NSObject {
         comment = dict["comment"] as? String
         user = dict["user"] as? String
         movieID = dict["movieID"] as? String
+        
+        let dateString = dict["timestamp"] as? String
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        timestamp = formatter.date(from: dateString!)
+        
     }
     
 }

@@ -16,8 +16,8 @@ let API_KEY = "05fb742d973ead23b8c11c9d46e53260"
 
 
 
-func searchForMovieWithName(name:String, page:Int = 1, completion:(response:AnyObject) ->Void) {
-    Alamofire.request(.GET, "https://api.themoviedb.org/3/search/movie", parameters: ["api_key" : API_KEY, "query" : name, "page": page]).responseJSON {
+func searchForMovieWithName(_ name:String, page:Int = 1, completion:@escaping (_ response:AnyObject) ->Void) {
+    Alamofire.request(URL(string: "https://api.themoviedb.org/3/search/movie")!, method: .get, parameters:["api_key" : API_KEY, "query" : name, "page": page]).responseJSON {
         response in
 //        print(response.request)  // original URL request
 //        print(response.response) // URL response
@@ -27,18 +27,18 @@ func searchForMovieWithName(name:String, page:Int = 1, completion:(response:AnyO
         if (response.result.isSuccess){
             if let JSON = response.result.value {
                 if let dict = JSON as? Dictionary<String, AnyObject> {
-                    completion(response: parseMovieResult(dict))
+                    completion(parseMovieResult(dict) as AnyObject)
                 }
             }
         }
         else{
-            completion(response: response.result.error!)
+            completion(response.result.error! as AnyObject)
         }
 
     }
 }
 
-func parseMovieResult(JSON:Dictionary<String, AnyObject>) -> Array<MAMovie> {
+func parseMovieResult(_ JSON:Dictionary<String, AnyObject>) -> Array<MAMovie> {
     var movies = Array<MAMovie>()
     
     if let results = JSON["results"] as? Array<Dictionary<String, AnyObject>> {
@@ -50,11 +50,10 @@ func parseMovieResult(JSON:Dictionary<String, AnyObject>) -> Array<MAMovie> {
     return movies
 }
 
-func genres(completion:(response:AnyObject) ->Void)  {
+func genres(_ completion:@escaping (_ response:AnyObject) ->Void)  {
     
     var returnDict = Dictionary<NSNumber, String>()
-    
-    Alamofire.request(.GET, "http://api.themoviedb.org/3/genre/movie/list", parameters: ["api_key" : API_KEY]).responseJSON {
+    Alamofire.request(URL(string: "http://api.themoviedb.org/3/genre/movie/list")!, method: .get, parameters:["api_key" : API_KEY]).responseJSON {
         response in
         if (response.result.isSuccess){
             if let JSON = response.result.value {
@@ -64,13 +63,13 @@ func genres(completion:(response:AnyObject) ->Void)  {
                             let id = genre["id"] as! NSNumber
                             returnDict[id] = genre["name"] as? String
                         }
-                        completion(response: returnDict)
+                        completion(returnDict as AnyObject)
                     }
                 }
             }
         }
         let error = NSError.init(domain: "MA", code: 1, userInfo: ["description": "genre error"])
-        completion(response: error)
+        completion(error as AnyObject)
     }
     
 }

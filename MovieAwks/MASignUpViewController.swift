@@ -10,57 +10,65 @@ import UIKit
 import Firebase
 
 class MASignUpViewController: MABaseViewController {
-
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var displayNameField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!{
+        didSet{
+            signUpButton.layer.cornerRadius = 5;
+            signUpButton.backgroundColor = UIColor.maPurple();
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
-        blurView.frame = view.bounds
-        view.insertSubview(blurView, atIndex: 0)
-        
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.lightGrayColor().CGColor, UIColor.blackColor().CGColor]
-        view.layer.insertSublayer(gradient, atIndex: 0)
-        
-        navigationController?.navigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
-            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
-    @IBAction func cancelPressed(sender: AnyObject) {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelPressed(_ sender: AnyObject) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func signUpPressed(sender: UIButton) {
+    
+    @IBAction func signUpPressed(_ sender: UIButton) {
         view.endEditing(true)
-        if (emailField.text! == "" || passwordField.text! == "") {
+        if (emailField.text! == "" || passwordField.text! == "" || displayNameField.text == "") {
             showErrorString("Looks like you're missing something...")
             return
         }
-        FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!) { (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if ((error) != nil) {
-                self.showError(error!)
+                self.showError(error! as NSError)
             }
             else{
-                self.performSegueWithIdentifier(MA_CONTINUE_SIGN_UP_SEGUE, sender: self)
+                let changeRequest = user!.profileChangeRequest()
+                
+                changeRequest.displayName = self.displayNameField.text!
+                changeRequest.commitChanges { error in
+                    if let error = error {
+                        self.showError(error as NSError)
+                    } else {
+                        self.presentingViewController?.dismiss(animated: true) {
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: "DoneSignUp"), object: nil)
+                        }
+                    }
+                }
             }
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == MA_USER_ALREADY_LOGGED_IN_SEGUE){
             navigationController?.setNavigationBarHidden(true, animated: false)
         }
     }
-
+    
 }
 

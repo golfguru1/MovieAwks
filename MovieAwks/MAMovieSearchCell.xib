@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MAMovieSearchCell" customModule="MovieAwks" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="449.5" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="450" height="82"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="tkj-f1-CPt">
-                    <rect key="frame" x="61" y="8" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0j-8O-l3R">
-                    <rect key="frame" x="8" y="8" width="45" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="c0j-8O-l3R" secondAttribute="height" multiplier="23:33" id="JNz-On-oJw"/>
+                        <constraint firstAttribute="height" constant="64" id="hzS-EN-EdV"/>
                         <constraint firstAttribute="width" secondItem="c0j-8O-l3R" secondAttribute="height" multiplier="23:33" id="qxh-fI-cw3"/>
+                        <constraint firstAttribute="width" constant="45" id="ucY-TC-j5D"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -31,24 +31,21 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crQ-7c-vdx">
-                    <rect key="frame" x="61" y="48" width="9" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="I2o-pg-J9T">
-                    <rect key="frame" x="396" y="54.5" width="33" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-ke-cRU">
-                    <rect key="frame" x="398" y="8" width="31" height="14.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="fsx-55-vsL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -57,25 +54,24 @@
                     </variation>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="c0j-8O-l3R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="1GV-lE-Ntw"/>
+                <constraint firstItem="crQ-7c-vdx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tkj-f1-CPt" secondAttribute="bottom" constant="19" id="1Is-bS-2rn"/>
                 <constraint firstItem="crQ-7c-vdx" firstAttribute="leading" secondItem="c0j-8O-l3R" secondAttribute="trailing" constant="8" symbolic="YES" id="4eE-34-6vk"/>
                 <constraint firstItem="c0j-8O-l3R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7Tt-pK-4vr"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8JU-GO-Bi9"/>
                 <constraint firstItem="I2o-pg-J9T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="crQ-7c-vdx" secondAttribute="trailing" constant="8" id="8YN-EH-4CC"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="top" secondItem="c0j-8O-l3R" secondAttribute="top" id="CRl-yD-QUf"/>
-                <constraint firstAttribute="bottom" secondItem="c0j-8O-l3R" secondAttribute="bottom" constant="8" id="LBb-mR-tgO"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tkj-f1-CPt" secondAttribute="trailing" constant="8" id="QZo-Xq-l6p"/>
-                <constraint firstItem="c0j-8O-l3R" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VwR-3j-NLq"/>
-                <constraint firstItem="crQ-7c-vdx" firstAttribute="bottom" secondItem="c0j-8O-l3R" secondAttribute="bottom" id="XKn-KO-Gh9"/>
-                <constraint firstItem="tkj-f1-CPt" firstAttribute="top" secondItem="c0j-8O-l3R" secondAttribute="top" id="agS-sL-cAO"/>
+                <constraint firstAttribute="bottom" secondItem="crQ-7c-vdx" secondAttribute="bottom" constant="8" id="S5p-6f-epf"/>
                 <constraint firstItem="SMP-ke-cRU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ai6-Mh-3G7"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="leading" secondItem="c0j-8O-l3R" secondAttribute="trailing" constant="8" symbolic="YES" id="eYi-qg-cge"/>
                 <constraint firstItem="I2o-pg-J9T" firstAttribute="baseline" secondItem="crQ-7c-vdx" secondAttribute="baseline" id="ouy-Lf-lQ5"/>
                 <constraint firstAttribute="trailing" secondItem="SMP-ke-cRU" secondAttribute="trailing" constant="20" symbolic="YES" id="oye-Cp-nsG"/>
                 <constraint firstItem="tkj-f1-CPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tht-wv-xwT"/>
                 <constraint firstItem="I2o-pg-J9T" firstAttribute="trailing" secondItem="SMP-ke-cRU" secondAttribute="trailing" id="xi9-gD-e3d"/>
+                <constraint firstItem="tkj-f1-CPt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ySf-vC-xEJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -93,7 +89,7 @@
                 <outlet property="releaseDateLabel" destination="SMP-ke-cRU" id="Z7z-lD-EmL"/>
                 <outlet property="titleLabel" destination="tkj-f1-CPt" id="TIx-MI-B3v"/>
             </connections>
-            <point key="canvasLocation" x="432.75" y="104"/>
+            <point key="canvasLocation" x="432" y="105"/>
         </view>
     </objects>
 </document>

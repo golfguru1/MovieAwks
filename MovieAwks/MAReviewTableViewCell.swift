@@ -11,7 +11,11 @@ import UIKit
 class MAReviewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var emojiLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!{
+        didSet{
+            usernameLabel.textColor = UIColor.maOrange()
+        }
+    }
     @IBOutlet weak var commentLabel: UILabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -20,16 +24,14 @@ class MAReviewTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-        contentView.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-        selectionStyle = .None
+        selectionStyle = .none
     }
     
-    func setReview(review:MAReview) {
+    func setReview(_ review:MAReview) {
         usernameLabel.text = review.user!
         commentLabel.text = review.comment!
         
-        emojiLabel.text = emojiForRating((review.ratingValue?.floatValue)!)
+        emojiLabel.text = emojiForRating(CGFloat(review.ratingValue!))
         
     }
 

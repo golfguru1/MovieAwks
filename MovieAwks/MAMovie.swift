@@ -25,7 +25,6 @@ class MAMovie: NSObject {
     
     init(dict: Dictionary<String, AnyObject>) {
         super.init()
-        
         title = dict["title"] as? String
         posterPath = dict["poster_path"] as? String
         overview = dict["overview"] as? String
@@ -34,7 +33,6 @@ class MAMovie: NSObject {
         backdropPath = dict["backdrop_path"] as? String
         tagline = dict["tagline"] as? String
         genres = dict["genre_ids"] as? Array<NSNumber>
-        
     }
     
 }

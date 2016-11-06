@@ -9,16 +9,16 @@
 import UIKit
 
 class MABaseViewController: UIViewController {
-    func showError(error:NSError){
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+    func showError(_ error:NSError){
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle:.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
         
     }
     
-    func showErrorString(error:String){
-                let alert = UIAlertController(title: "Error", message: error, preferredStyle:.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+    func showErrorString(_ error:String){
+                let alert = UIAlertController(title: "Error", message: error, preferredStyle:.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import ASValueTrackingSlider
 import Firebase
 import FirebaseDatabase
+import SDWebImage
 
 class MARatingViewController: MABaseViewController {
 
@@ -21,7 +22,23 @@ class MARatingViewController: MABaseViewController {
             titleLabel.text = movie!.title!
         }
     }
+    @IBOutlet weak var submitReviewButton: UIButton!{
+        didSet{
+            submitReviewButton.backgroundColor = UIColor.maPurple()
+        }
+    }
     
+    @IBOutlet weak var posterImageView: UIImageView!{
+        didSet{
+            if let path = movie!.posterPath {
+                posterImageView.sd_setImage(with: URL(string: "http://image.tmdb.org/t/p/w600\(path)")!, placeholderImage: UIImage(named: "blankMovie"), options: SDWebImageOptions())
+                
+            }
+            else {
+                posterImageView.image = UIImage(named: "blankMovie")
+            }
+        }
+    }
     var movie: MAMovie?
     
     override func viewDidLoad() {
@@ -31,36 +48,43 @@ class MARatingViewController: MABaseViewController {
         ratingSlider.value = 0
         
         ratingSlider.setMaxFractionDigitsDisplayed(0)
-        ratingSlider.popUpViewAnimatedColors = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.orangeColor(), UIColor.redColor()]
+        ratingSlider.popUpViewAnimatedColors = [UIColor.green, UIColor.yellow, UIColor.orange, UIColor.red]
         changeEmojiWithValue(0)
         
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blurView.frame = view.bounds
-        view.insertSubview(blurView, atIndex: 0)
+        view.insertSubview(blurView, at: 0)
         
-//        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
-    @IBAction func sliderChanged(sender: UISlider) {
-        changeEmojiWithValue(round(sender.value))
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        changeEmojiWithValue(round(CGFloat(sender.value)))
     }
     
-    @IBAction func sliderDone(sender: UISlider) {
+    @IBAction func sliderDone(_ sender: UISlider) {
 //        sender.setValue(round(sender.value), animated: true)
     }
     
-    func changeEmojiWithValue(value: Float) {
+    func changeEmojiWithValue(_ value: CGFloat) {
         //😇😐😔😬😵💀
         ratingEmojiLabel.text = emojiForRating(value)
     }
     
-    @IBAction func submitPressed(sender: AnyObject) {
+    @IBAction func submitPressed(_ sender: AnyObject) {
+        
+        let date = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        formatter.timeZone = NSTimeZone(abbreviation: "UTC") as TimeZone!
+        let utcTimeZoneStr = formatter.string(from: date as Date)
         
         let review : [String: AnyObject] = ["movieID" : (movie!.id)!,
                                             "ratingValue" : round(ratingSlider.value) as NSNumber,
-                                            "user" : (FIRAuth.auth()?.currentUser?.displayName)!,
-                                            "comment" : reviewTextView.text,
-                                            "email": (FIRAuth.auth()?.currentUser?.email)!]
+                                            "user" : (FIRAuth.auth()?.currentUser?.displayName)! as AnyObject,
+                                            "comment" : reviewTextView.text as AnyObject,
+                                            "email": (FIRAuth.auth()?.currentUser?.email)! as AnyObject,
+                                            "timestamp": utcTimeZoneStr as AnyObject
+                                            ]
         
         let database = FIRDatabase.database().reference()
         
@@ -68,31 +92,31 @@ class MARatingViewController: MABaseViewController {
         
         movies.updateChildValues(review) { (error, DB) in
             if error != nil {
-                self.showError(error!)
+                self.showError(error! as NSError)
             }
             else{
-                self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
     }
 
-    @IBAction func cancelPressed(sender: UIButton) {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     //MARK: UITextViewDelegate
     
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Enter your review here" {
             textView.text = nil
-            textView.textColor = UIColor.whiteColor()
+            textView.textColor = UIColor.white
         }
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Enter your review here"
-            textView.textColor = UIColor.lightGrayColor()
+            textView.textColor = UIColor.lightGray
         }
     }
 

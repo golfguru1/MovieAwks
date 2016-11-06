@@ -1,6 +1,7 @@
 
 #MovieAwks
-<img src="https://cloud.githubusercontent.com/assets/3711400/16571008/007804d4-4220-11e6-87dd-480dd2dbdda6.png" width="20%"></img> 
+<img src="https://cloud.githubusercontent.com/assets/3711400/16571008/007804d4-4220-11e6-87dd-480dd2dbdda6.png" width="20%"></img>
+(In the process of redesigning new logo to match new UI.)
 
 MovieAwks is an app that allows users to see how awkward a movie will be to watch with their family/parents. Awkward-ness is rated on a scale of 😇 to 💀 (see below for rating conversion)
 
@@ -17,19 +18,20 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 * 10 : 💀 (skull is self-explanitory)
 
 ##Current UI
-<img src="https://cloud.githubusercontent.com/assets/3711400/15725189/a4d733be-2818-11e6-9b2a-b1d1ba85acd7.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725188/a4d36540-2818-11e6-8e73-e5dde8d38c2c.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725187/a4d19602-2818-11e6-98de-c5ea87c7b06f.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/15725186/a4d0c75e-2818-11e6-8006-bf3f0978c41d.png" width="23%"></img> 
-
-<img src="https://cloud.githubusercontent.com/assets/3711400/16131676/5d4d642a-33dd-11e6-82ce-3b8f2aeab01a.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131677/5d4f89b2-33dd-11e6-9026-efee5ee32669.png" width="23%"></img> <img src="https://cloud.githubusercontent.com/assets/3711400/16131675/5d4bb27e-33dd-11e6-9833-a76d90fa60c8.png" width="23%"></img> 
-
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040540/cdfd2fc4-a427-11e6-9e47-6ed17659de99.png" width="19%"></img> 
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040541/cdfe4db4-a427-11e6-9e36-6d6b847c6383.png" width="19%"></img> 
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040543/ce022e0c-a427-11e6-8b91-d180a84bde7f.png" width="19%"></img>
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040539/cdfd1fac-a427-11e6-9ec9-5805ac780267.png" width="19%"></img>
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040542/ce015432-a427-11e6-99ee-19d549d8b365.png" width="19%"></img>
 ##//TODO
+* Design Logo
+* App Icon
+* Launch Image
 * ~~Add "no internet" warnings~~
-* ~~Design Logo~~ *See Above*
-* ~~App Icon~~
-* ~~Launch Image~~
 * ~~**NEW NAME!**~~ *the name is growing on me, keeping it for now*
 * ~~Re-do UI for Login/Sign up~~ DONE
-* ~~Choose color scheme~~ B&W and gray
-* ~~Choose Font~~ *Futura looks good*
+* ~~Choose color scheme~~
+* ~~Choose Font~~
 
 ###My Podfile
 
@@ -42,7 +44,7 @@ pod 'MMDrawerController', '~> 0.4.0'
 pod 'MMDrawerController+Storyboard'
 pod 'Fabric'
 pod 'Crashlytics'
-pod 'Alamofire', '~> 3.0'
+pod 'Alamofire', '~> 4.0'
 pod 'IQKeyboardManager'
 pod 'Firebase'
 pod 'Firebase/Auth'

@@ -18,7 +18,7 @@ let MA_SIGN_IN_SUCCESS_SEGUE = "MASignInSuccessSegue"
 let MA_USER_ALREADY_LOGGED_IN_SEGUE = "MAUserAlreadyLoggedInSegue"
 let MA_POST_REVIEW_SEGUE = "MAPostReviewSegue"
 let MA_SIGN_IN_SEGUE = "MASignInSegue"
-
+let MA_SEE_REVIEWS_SEGUE = "MASeeReviewsSegue"
 
 //****************************************//
 //              TableViewCells
@@ -39,7 +39,7 @@ func getGenres() {
     }
 }
 
-func emojiForRating(rating: Float) -> String{
+func emojiForRating(_ rating: CGFloat) -> String{
     if (rating < 0) {
         return "-"
     }
@@ -64,12 +64,12 @@ func emojiForRating(rating: Float) -> String{
 extension UIImage {
     func averageColor() -> UIColor {
         
-        let rgba = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
-        let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
-        let info = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let context: CGContextRef = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, info.rawValue)!
+        let rgba = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
+        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let info = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context: CGContext = CGContext(data: rgba, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: info.rawValue)!
         
-        CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), self.CGImage)
+        context.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: 1, height: 1))
         
         if rgba[3] > 0 {
             
@@ -119,5 +119,17 @@ extension UIColor {
         let rgb = self.rgb()
         let brightness = (((rgb?.red)!*299+(rgb?.green)!*587)+(rgb?.blue)!*114)
         return (brightness < 50000)
+    }
+    
+    static func maPurple() -> UIColor {
+        return UIColor.init(red: 64/255.0, green: 0/255.0, blue:178/255.0, alpha:1.0)
+    }
+    
+    static func maOrange() -> UIColor {
+        return UIColor.init(red: 255/255.0, green: 167/255.0, blue:68/255.0, alpha:1.0)
+    }
+    
+    static func maBlack() ->UIColor {
+        return UIColor.init(red: 0/255.0, green: 30/255.0, blue:52/255.0, alpha:1.0)
     }
 }

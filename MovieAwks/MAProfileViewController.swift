@@ -16,69 +16,79 @@ class MAProfileViewController: MABaseViewController {
     @IBOutlet weak var userNumberReviewsLabel: UILabel!
     @IBOutlet weak var userAverageReviewLAbel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var createAccountButton: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!{
+        didSet{
+            createAccountButton.layer.cornerRadius = 5;
+            createAccountButton.backgroundColor = UIColor.maPurple();
+        }
+    }
+    @IBOutlet weak var logoutButton: UIButton!{
+        didSet{
+            logoutButton.backgroundColor = UIColor.maOrange();
+        }
+    }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let user = FIRAuth.auth()?.currentUser {
             userDisplayNameLabel.text = user.displayName
             userEmailLabel.text = user.email
 //            stackView.removeArrangedSubview(createAccountButton)
-            createAccountButton.hidden = true
-            userEmailLabel.hidden = false
-            userAverageReviewLAbel.hidden = false
-            userNumberReviewsLabel.hidden = false
-            logoutButton.hidden = false
+            createAccountButton.isHidden = true
+            userEmailLabel.isHidden = false
+            userAverageReviewLAbel.isHidden = false
+            userNumberReviewsLabel.isHidden = false
+            logoutButton.isHidden = false
             getUsersReviews(user)
         }
         else{
             userDisplayNameLabel.text = "Sign in to see your stats"
-            userEmailLabel.hidden = true
-            userAverageReviewLAbel.hidden = true
-            userNumberReviewsLabel.hidden = true
-            stackView.insertArrangedSubview(createAccountButton, atIndex: 1)
-            createAccountButton.hidden = false
-            logoutButton.hidden = true
+            userEmailLabel.isHidden = true
+            userAverageReviewLAbel.isHidden = true
+            userNumberReviewsLabel.isHidden = true
+            stackView.insertArrangedSubview(createAccountButton, at: 1)
+            createAccountButton.isHidden = false
+            logoutButton.isHidden = true
         }
     }
-    @IBAction func createAccountPressed(sender: AnyObject) {
-        mm_drawerController.closeDrawerAnimated(true) { (completed) in
+    @IBAction func createAccountPressed(_ sender: AnyObject) {
+        mm_drawerController.closeDrawer(animated: true) { (completed) in
             if (completed){
                 let navController = self.mm_drawerController.centerViewController as! UINavigationController
-                navController.viewControllers.first!.performSegueWithIdentifier(MA_SIGN_IN_SEGUE, sender: self)
+                navController.viewControllers.first!.performSegue(withIdentifier: MA_SIGN_IN_SEGUE, sender: self)
             }
         }
     }
     
-    @IBAction func logoutPressed(sender: AnyObject) {
+    @IBAction func logoutPressed(_ sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
-        mm_drawerController.closeDrawerAnimated(true) { completed in
+        mm_drawerController.closeDrawer(animated: true) { completed in
             if (completed){
-                let navController = self.mm_drawerController.centerViewController as! UINavigationController
-                let home = navController.viewControllers.first! as! MAHomeViewController
-                home.updateButton()
+                //TODO: Fix this
+//                let navController = self.mm_drawerController.centerViewController as! UINavigationController
+//                let home = navController.viewControllers.first! as! MAHomeViewController
+//                home.updateButton()
             }
             
         }
     }
     
-    func getUsersReviews(user: FIRUser) {
+    func getUsersReviews(_ user: FIRUser) {
         let database = FIRDatabase.database().reference()
-        let reviews = database.child("movies").queryOrderedByChild("email").queryEqualToValue(user.email)
-        reviews.observeSingleEventOfType(.Value, withBlock: {(snapshot) in
+        let reviews = database.child("movies").queryOrdered(byChild: "email").queryEqual(toValue: user.email)
+        reviews.observe(.value, with: {(snapshot) in
             var reviews = Array<MAReview>()
             var sumOfReviews = 0
             if let reviewsDict = snapshot.value as? Dictionary<String, Dictionary<String,AnyObject>> {
                 for (_, review) in reviewsDict {
                     let reviewOBJ = MAReview.init(dict: review)
-                    sumOfReviews += (reviewOBJ.ratingValue?.integerValue)!
+                    sumOfReviews += (reviewOBJ.ratingValue?.intValue)!
                     reviews.append(reviewOBJ)
                 }
             }
             self.userNumberReviewsLabel.text = "Number of Reviews: \(reviews.count)"
             if reviews.count > 0 {
-                let ratingVal = Float(sumOfReviews)/Float(reviews.count)
+                let ratingVal = CGFloat(sumOfReviews)/CGFloat(reviews.count)
                 self.userAverageReviewLAbel.text = "Average Review: \(round(ratingVal)) \(emojiForRating(ratingVal))"
             }
             else{

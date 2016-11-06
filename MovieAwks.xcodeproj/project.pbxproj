@@ -13,6 +13,7 @@
 		A70FB58B1CFA05F9006D46CC /* MAReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70FB58A1CFA05F9006D46CC /* MAReview.swift */; };
 		A723388F1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */; };
 		A72338911CFA86E20039C94A /* MAHomeTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */; };
+		A727B3E91DC2E38100FEA943 /* MAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727B3E81DC2E38100FEA943 /* MAHomeViewController.swift */; };
 		A740293C1CF7848300AFC3DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740293B1CF7848300AFC3DD /* AppDelegate.swift */; };
 		A740293E1CF7848300AFC3DD /* MASignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */; };
 		A74029411CF7848300AFC3DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A740293F1CF7848300AFC3DD /* Main.storyboard */; };
@@ -22,8 +23,7 @@
 		A74029511CF78B2600AFC3DD /* MABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029501CF78B2600AFC3DD /* MABaseViewController.swift */; };
 		A74029541CF78DD500AFC3DD /* MASignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029531CF78DD500AFC3DD /* MASignInViewController.swift */; };
 		A74029561CF78FB400AFC3DD /* MAConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029551CF78FB400AFC3DD /* MAConstants.swift */; };
-		A74029581CF7906800AFC3DD /* MADisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */; };
-		A740295A1CF7955700AFC3DD /* MAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029591CF7955700AFC3DD /* MAHomeViewController.swift */; };
+		A740295A1CF7955700AFC3DD /* MAReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74029591CF7955700AFC3DD /* MAReviewsViewController.swift */; };
 		A740295C1CF7984900AFC3DD /* MAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740295B1CF7984900AFC3DD /* MAProfileViewController.swift */; };
 		A740295E1CF7AF2500AFC3DD /* MAMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740295D1CF7AF2500AFC3DD /* MAMovie.swift */; };
 		A74029601CF7AF6300AFC3DD /* MAMovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740295F1CF7AF6300AFC3DD /* MAMovieSearchCell.swift */; };
@@ -39,6 +39,7 @@
 		A70FB58A1CFA05F9006D46CC /* MAReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAReview.swift; sourceTree = "<group>"; };
 		A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAHomeTableViewHeaderView.swift; sourceTree = "<group>"; };
 		A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAHomeTableViewHeaderView.xib; sourceTree = "<group>"; };
+		A727B3E81DC2E38100FEA943 /* MAHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAHomeViewController.swift; sourceTree = "<group>"; };
 		A74029381CF7848200AFC3DD /* MovieAwks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAwks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A740293B1CF7848300AFC3DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASignUpViewController.swift; sourceTree = "<group>"; };
@@ -50,8 +51,7 @@
 		A74029501CF78B2600AFC3DD /* MABaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MABaseViewController.swift; sourceTree = "<group>"; };
 		A74029531CF78DD500AFC3DD /* MASignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASignInViewController.swift; sourceTree = "<group>"; };
 		A74029551CF78FB400AFC3DD /* MAConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAConstants.swift; sourceTree = "<group>"; };
-		A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADisplayNameViewController.swift; sourceTree = "<group>"; };
-		A74029591CF7955700AFC3DD /* MAHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAHomeViewController.swift; sourceTree = "<group>"; };
+		A74029591CF7955700AFC3DD /* MAReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAReviewsViewController.swift; sourceTree = "<group>"; };
 		A740295B1CF7984900AFC3DD /* MAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAProfileViewController.swift; sourceTree = "<group>"; };
 		A740295D1CF7AF2500AFC3DD /* MAMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAMovie.swift; sourceTree = "<group>"; };
 		A740295F1CF7AF6300AFC3DD /* MAMovieSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAMovieSearchCell.swift; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 			children = (
 				A74029531CF78DD500AFC3DD /* MASignInViewController.swift */,
 				A740293D1CF7848300AFC3DD /* MASignUpViewController.swift */,
-				A74029571CF7906800AFC3DD /* MADisplayNameViewController.swift */,
 			);
 			name = "Sign up/in flow";
 			sourceTree = "<group>";
@@ -103,9 +102,10 @@
 		A72338991CFF74B30039C94A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A74029591CF7955700AFC3DD /* MAHomeViewController.swift */,
+				A74029591CF7955700AFC3DD /* MAReviewsViewController.swift */,
 				A723388E1CFA86CD0039C94A /* MAHomeTableViewHeaderView.swift */,
 				A72338901CFA86E20039C94A /* MAHomeTableViewHeaderView.xib */,
+				A727B3E81DC2E38100FEA943 /* MAHomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -183,13 +183,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A740294A1CF7848300AFC3DD /* Build configuration list for PBXNativeTarget "MovieAwks" */;
 			buildPhases = (
-				E302E4A6C79A02D08615BA0F /* 📦 Check Pods Manifest.lock */,
+				E302E4A6C79A02D08615BA0F /* [CP] Check Pods Manifest.lock */,
 				A74029341CF7848200AFC3DD /* Sources */,
 				A74029351CF7848200AFC3DD /* Frameworks */,
 				A74029361CF7848200AFC3DD /* Resources */,
 				A740294F1CF7861900AFC3DD /* ShellScript */,
-				EAA4837230F314BBB191591A /* 📦 Embed Pods Frameworks */,
-				F54A61A9C8C229766F63AA3C /* 📦 Copy Pods Resources */,
+				EAA4837230F314BBB191591A /* [CP] Embed Pods Frameworks */,
+				F54A61A9C8C229766F63AA3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +213,7 @@
 				TargetAttributes = {
 					A74029371CF7848200AFC3DD = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -264,29 +265,29 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6180b7c36b7c320dd4655f4d1891f71b6b9b08dd 3d03bba32f5a8a628af1eb098d56a7eac11fc59c0069bc6b463a5dbb66e146ca";
 		};
-		E302E4A6C79A02D08615BA0F /* 📦 Check Pods Manifest.lock */ = {
+		E302E4A6C79A02D08615BA0F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EAA4837230F314BBB191591A /* 📦 Embed Pods Frameworks */ = {
+		EAA4837230F314BBB191591A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,14 +295,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieAwks/Pods-MovieAwks-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F54A61A9C8C229766F63AA3C /* 📦 Copy Pods Resources */ = {
+		F54A61A9C8C229766F63AA3C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,8 +319,8 @@
 			files = (
 				A74029601CF7AF6300AFC3DD /* MAMovieSearchCell.swift in Sources */,
 				A70FB5871CF88C40006D46CC /* MAReviewTableViewCell.swift in Sources */,
-				A740295A1CF7955700AFC3DD /* MAHomeViewController.swift in Sources */,
-				A74029581CF7906800AFC3DD /* MADisplayNameViewController.swift in Sources */,
+				A727B3E91DC2E38100FEA943 /* MAHomeViewController.swift in Sources */,
+				A740295A1CF7955700AFC3DD /* MAReviewsViewController.swift in Sources */,
 				A74029541CF78DD500AFC3DD /* MASignInViewController.swift in Sources */,
 				A70FB58B1CFA05F9006D46CC /* MAReview.swift in Sources */,
 				A74029641CF7B23F00AFC3DD /* MANetworkingManager.swift in Sources */,
@@ -448,6 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markhall.MovieAwks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -460,6 +462,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markhall.MovieAwks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

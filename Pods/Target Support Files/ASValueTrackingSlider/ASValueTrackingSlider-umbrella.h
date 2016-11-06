@@ -1,4 +1,6 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
 #import "ASValuePopUpView.h"
 #import "ASValueTrackingSlider.h"
