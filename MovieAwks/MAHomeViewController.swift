@@ -65,7 +65,14 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             
             if let path = movieToDisplay!.posterPath {
-                posterImageView.sd_setImage(with: URL(string: "http://image.tmdb.org/t/p/w600\(path)")!, placeholderImage: UIImage(named: "blankMovie"), options: SDWebImageOptions())
+                posterImageView.contentMode = .center
+                self.gradient.removeFromSuperlayer()
+                posterImageView.sd_setImage(with: URL(string: "http://image.tmdb.org/t/p/w600\(path)")!, placeholderImage: UIImage(named: "blankMovie"), options: SDWebImageOptions()){ (image, error, cacheType, imageURL) in
+                    self.posterImageView.contentMode = .scaleAspectFill
+                    self.gradient.frame = self.posterImageView.bounds
+                    self.posterImageView.layer.addSublayer(self.gradient)
+
+                }
                 
             }
             else {
@@ -82,7 +89,11 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     @IBOutlet weak var seeReviewsButton: UIButton!
-    var gradient: CAGradientLayer!
+    lazy var gradient: CAGradientLayer! = {
+        var tempGradient = CAGradientLayer()
+        tempGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        return tempGradient
+    }()
     var searchResults = Array<MAMovie>()
     let searchResultsController = UITableViewController()
     var searchController: UISearchController?
@@ -139,6 +150,10 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let searchText = searchBar.text
         
         if (!isSearching){
+            if (searchResults.count > 0){
+                searchResultsController.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+            }
+//            searchResultsController.tableView.contentOffset = CGPoint(x: 0, y: 0)
             isSearching = true
             searchForMovieWithName(searchText!) { (result) in
                 self.isSearching = false
@@ -180,14 +195,6 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         yearLabel.backgroundColor = UIColor.clear
         synopsisTextView.backgroundColor = UIColor.clear
         submitReviewButton.isEnabled = true
-        if (gradient == nil){
-            gradient = CAGradientLayer()
-            print(NSStringFromCGRect(posterImageView.bounds))
-            gradient.frame = posterImageView.bounds
-            gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-            posterImageView.layer.addSublayer(gradient)
-        }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -202,5 +209,8 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        searchResultsController.tableView.contentOffset = CGPoint(x: 0, y: 0)
+    }
 }

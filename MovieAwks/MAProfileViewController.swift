@@ -62,15 +62,7 @@ class MAProfileViewController: MABaseViewController {
     
     @IBAction func logoutPressed(_ sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
-        mm_drawerController.closeDrawer(animated: true) { completed in
-            if (completed){
-                //TODO: Fix this
-//                let navController = self.mm_drawerController.centerViewController as! UINavigationController
-//                let home = navController.viewControllers.first! as! MAHomeViewController
-//                home.updateButton()
-            }
-            
-        }
+        mm_drawerController.closeDrawer(animated: true, completion: nil)
     }
     
     func getUsersReviews(_ user: FIRUser) {
