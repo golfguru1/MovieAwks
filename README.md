@@ -1,13 +1,13 @@
 
-#MovieAwks
-<img src="https://cloud.githubusercontent.com/assets/3711400/16571008/007804d4-4220-11e6-87dd-480dd2dbdda6.png" width="20%"></img>
-(In the process of redesigning new logo to match new UI.)
+# MovieAwks
+<img src="https://cloud.githubusercontent.com/assets/3711400/20233801/a9a9caa6-a841-11e6-9e21-36ad949cea8c.png
+" width="20%"></img>
 
 MovieAwks is an app that allows users to see how awkward a movie will be to watch with their family/parents. Awkward-ness is rated on a scale of 😇 to 💀 (see below for rating conversion)
 
 I used Firebase as a backend to store all the ratings that users make, and this lovely API: [The Movie DB API](http://docs.themoviedb.apiary.io) which provides both movie info and posters.
 
-###Rating
+### Rating
 When rating the awkwardness of a movie, you must chose between 1-10 on the awkward scale:
 
 * 0-1 : not at all awkward 😇
@@ -17,25 +17,25 @@ When rating the awkwardness of a movie, you must chose between 1-10 on the awkwa
 * 8-9 : dangerous territory 😵
 * 10 : 💀 (skull is self-explanitory)
 
-##Current UI
-<img src="https://cloud.githubusercontent.com/assets/3711400/20040540/cdfd2fc4-a427-11e6-9e47-6ed17659de99.png" width="19%"></img> 
-<img src="https://cloud.githubusercontent.com/assets/3711400/20040541/cdfe4db4-a427-11e6-9e36-6d6b847c6383.png" width="19%"></img> 
+## Current UI
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040540/cdfd2fc4-a427-11e6-9e47-6ed17659de99.png" width="19%"></img>
+<img src="https://cloud.githubusercontent.com/assets/3711400/20040541/cdfe4db4-a427-11e6-9e36-6d6b847c6383.png" width="19%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3711400/20040543/ce022e0c-a427-11e6-8b91-d180a84bde7f.png" width="19%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3711400/20040539/cdfd1fac-a427-11e6-9ec9-5805ac780267.png" width="19%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3711400/20040542/ce015432-a427-11e6-99ee-19d549d8b365.png" width="19%"></img>
-##//TODO
-* Design Logo
-* App Icon
+## //TODO
 * Launch Image
-* ~~Add "no internet" warnings~~
+* ~~Design Logo~~
+* ~~App Icon~~
+* Add "no internet" warnings *(going to refactor this)*
 * ~~**NEW NAME!**~~ *the name is growing on me, keeping it for now*
-* ~~Re-do UI for Login/Sign up~~ DONE
+* ~~Re-do UI for Login/Sign up~~
 * ~~Choose color scheme~~
 * ~~Choose Font~~
 
-###My Podfile
+### My Podfile
 
-``` 
+```
 pod 'CRToast', '~> 0.0.7'
 pod 'ASValueTrackingSlider'
 pod 'SDWebImage', '~>3.7'
@@ -50,8 +50,8 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 ```
 
-##License
+## License
 BSD License. PLZ don't steal it and call it your own! But feel free to make changes to make it better!
 
-##Contact
+## Contact
 Hit me up on twitter: [@softieeng](https://twitter.com/softieeng)
