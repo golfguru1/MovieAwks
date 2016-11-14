@@ -310,7 +310,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AZw-dP-sxH">
-                                <rect key="frame" x="28" y="610" width="319" height="42"/>
+                                <rect key="frame" x="28" y="609" width="319" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1y-26-Xge">
                                         <rect key="frame" x="0.0" y="0.0" width="159.5" height="42"/>
@@ -337,7 +337,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-f8-NeZ">
-                                <rect key="frame" x="28" y="558" width="319" height="37"/>
+                                <rect key="frame" x="28" y="558" width="319" height="35"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.82695312499999996" green="0.82695312499999996" blue="0.82695312499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -361,7 +361,7 @@
                             <constraint firstItem="nRU-n7-cvx" firstAttribute="leading" secondItem="w7P-9X-QZx" secondAttribute="leading" constant="20" symbolic="YES" id="CAU-6w-ZWu"/>
                             <constraint firstItem="Oh2-bH-R1V" firstAttribute="trailing" secondItem="BjJ-Kp-5uk" secondAttribute="trailing" id="GaX-ep-8Bd"/>
                             <constraint firstItem="BjJ-Kp-5uk" firstAttribute="leading" secondItem="nRU-n7-cvx" secondAttribute="leading" constant="8" id="H9G-Cu-EiA"/>
-                            <constraint firstItem="vqv-C6-ciI" firstAttribute="top" secondItem="AZw-dP-sxH" secondAttribute="bottom" constant="15" id="IjI-q9-KNT"/>
+                            <constraint firstItem="vqv-C6-ciI" firstAttribute="top" secondItem="AZw-dP-sxH" secondAttribute="bottom" constant="16" id="IjI-q9-KNT"/>
                             <constraint firstItem="FJX-f8-NeZ" firstAttribute="top" secondItem="Oh2-bH-R1V" secondAttribute="bottom" constant="8" symbolic="YES" id="JPm-dS-6UQ"/>
                             <constraint firstItem="AZw-dP-sxH" firstAttribute="trailing" secondItem="FJX-f8-NeZ" secondAttribute="trailing" id="M1E-yE-HlQ"/>
                             <constraint firstItem="Oh2-bH-R1V" firstAttribute="leading" secondItem="BjJ-Kp-5uk" secondAttribute="leading" id="MPz-vb-4LT"/>
@@ -373,7 +373,7 @@
                             <constraint firstItem="BjJ-Kp-5uk" firstAttribute="top" secondItem="5Yy-cV-kNt" secondAttribute="bottom" constant="8" id="jro-GL-vTd"/>
                             <constraint firstItem="nRU-n7-cvx" firstAttribute="height" secondItem="w7P-9X-QZx" secondAttribute="height" multiplier="0.67" constant="1" id="lZF-2u-qdi"/>
                             <constraint firstItem="nRU-n7-cvx" firstAttribute="top" secondItem="S5e-oq-vdy" secondAttribute="bottom" constant="8" id="rkc-tc-71a"/>
-                            <constraint firstItem="AZw-dP-sxH" firstAttribute="top" secondItem="FJX-f8-NeZ" secondAttribute="bottom" constant="15" id="tfN-eY-nSU"/>
+                            <constraint firstItem="AZw-dP-sxH" firstAttribute="top" secondItem="FJX-f8-NeZ" secondAttribute="bottom" constant="16" id="tfN-eY-nSU"/>
                             <constraint firstItem="5Yy-cV-kNt" firstAttribute="leading" secondItem="BjJ-Kp-5uk" secondAttribute="leading" id="uKY-5D-Fmi"/>
                             <constraint firstItem="5Yy-cV-kNt" firstAttribute="trailing" secondItem="BjJ-Kp-5uk" secondAttribute="trailing" id="zPX-Pl-GRp"/>
                         </constraints>
@@ -422,7 +422,7 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rNm-s7-DdL">
-                                <rect key="frame" x="20" y="614" width="335" height="45"/>
+                                <rect key="frame" x="20" y="606" width="335" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-VO-xbc">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="45"/>
@@ -469,7 +469,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your review here" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-hy-InU">
-                                <rect key="frame" x="20" y="383" width="335" height="113"/>
+                                <rect key="frame" x="20" y="383" width="335" height="105"/>
                                 <color key="backgroundColor" red="0.0" green="0.18602248379430297" blue="0.31965916050000009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -500,7 +500,7 @@
                             <constraint firstItem="OXk-1q-HmR" firstAttribute="centerY" secondItem="i8K-ks-uKu" secondAttribute="centerY" id="ndO-G5-VOX"/>
                             <constraint firstAttribute="trailing" secondItem="rNm-s7-DdL" secondAttribute="trailing" constant="20" symbolic="YES" id="obo-ld-5Z8"/>
                             <constraint firstItem="iCe-8O-paa" firstAttribute="leading" secondItem="Lff-aj-jNa" secondAttribute="trailing" constant="8" symbolic="YES" id="p5m-Cc-pQN"/>
-                            <constraint firstItem="eO5-1v-0Dy" firstAttribute="top" secondItem="rNm-s7-DdL" secondAttribute="bottom" constant="8" symbolic="YES" id="ruN-Gp-KgA"/>
+                            <constraint firstItem="eO5-1v-0Dy" firstAttribute="top" secondItem="rNm-s7-DdL" secondAttribute="bottom" constant="16" id="ruN-Gp-KgA"/>
                             <constraint firstItem="Pb0-hy-InU" firstAttribute="top" secondItem="i8K-ks-uKu" secondAttribute="bottom" constant="50" id="vZq-dz-vKa"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iCe-8O-paa" secondAttribute="trailing" constant="20" id="yKY-eD-GdE"/>
                         </constraints>

@@ -213,6 +213,7 @@
 				TargetAttributes = {
 					A74029371CF7848200AFC3DD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8M6F65ZU25;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -445,6 +446,7 @@
 			baseConfigurationReference = 1BAD1368815F8670942431A7 /* Pods-MovieAwks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8M6F65ZU25;
 				INFOPLIST_FILE = MovieAwks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markhall.MovieAwks;
@@ -458,6 +460,7 @@
 			baseConfigurationReference = 41ADB527F697D536A6B415C1 /* Pods-MovieAwks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8M6F65ZU25;
 				INFOPLIST_FILE = MovieAwks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markhall.MovieAwks;
