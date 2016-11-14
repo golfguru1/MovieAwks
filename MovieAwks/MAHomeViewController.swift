@@ -119,6 +119,7 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController!.delegate = self
         searchController!.searchBar.delegate = self
+        searchController!.searchBar.searchBarStyle = .minimal
         searchController!.dimsBackgroundDuringPresentation = false
         searchController!.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true

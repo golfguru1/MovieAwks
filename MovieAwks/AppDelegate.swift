@@ -81,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:UIFont.systemFont(ofSize: 25, weight: 5)]
         
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
+        
         return true
     }
     

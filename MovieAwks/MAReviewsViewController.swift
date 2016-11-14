@@ -16,11 +16,7 @@ class MAReviewsViewController: MABaseViewController, UITableViewDelegate, UITabl
 
     var reviews: Array<MAReview> = []
 
-    @IBOutlet weak var reviewsTableView: UITableView!{
-        didSet{
-            print("hello")
-        }
-    }
+    @IBOutlet weak var reviewsTableView: UITableView!
     
     var movie: MAMovie? {
         didSet {
