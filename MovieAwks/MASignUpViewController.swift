@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import NVActivityIndicatorView
+
 
 class MASignUpViewController: MABaseViewController {
     
@@ -20,6 +22,8 @@ class MASignUpViewController: MABaseViewController {
             signUpButton.backgroundColor = UIColor.maPurple();
         }
     }
+    var activityIndicator: NVActivityIndicatorView?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +47,11 @@ class MASignUpViewController: MABaseViewController {
             showErrorString("Looks like you're missing something...")
             return
         }
+        signUpButton.isEnabled = false
+        showLoading()
         FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            self.signUpButton.isEnabled = true;
+            self.hideLoading()
             if ((error) != nil) {
                 self.showError(error! as NSError)
             }
@@ -62,6 +70,22 @@ class MASignUpViewController: MABaseViewController {
                 }
             }
         }
+    }
+    
+    func showLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.signUpButton.setTitle("", for: .normal)
+            self.activityIndicator = NVActivityIndicatorView(frame: self.signUpButton.frame, type: .ballPulse, color: UIColor.white)
+            self.activityIndicator?.startAnimating()
+            self.signUpButton.addSubview(self.activityIndicator!)
+        })
+    }
+    func hideLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.signUpButton.setTitle("Sign Up", for: .normal)
+            self.activityIndicator?.stopAnimating()
+            self.activityIndicator?.removeFromSuperview()
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

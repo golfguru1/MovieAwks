@@ -61,6 +61,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.4.0):
     - MMDrawerController/Core
+  - NVActivityIndicatorView (3.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MMDrawerController (~> 0.4.0)
   - MMDrawerController+Storyboard
+  - NVActivityIndicatorView
   - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
@@ -98,8 +100,9 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
   MMDrawerController: 858baca4191ab2ef8dae9521cdde3bebb1ecd536
   MMDrawerController+Storyboard: c98f86c0f32cdef1d466d19a7da3ad2fc6c6ac00
+  NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 789fe109f21f91b19283a4b6cf340a72d3ac078d
+PODFILE CHECKSUM: 9c063c9a1a5ce383694dd0bd11a5f7bd455d24f6
 
 COCOAPODS: 1.1.1

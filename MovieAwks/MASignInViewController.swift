@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NVActivityIndicatorView
 
 class MASignInViewController: MABaseViewController {
     
@@ -19,6 +20,7 @@ class MASignInViewController: MABaseViewController {
             logInButton.backgroundColor = UIColor.maPurple();
         }
     }
+    var activityIndicator: NVActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +34,12 @@ class MASignInViewController: MABaseViewController {
             showErrorString("Looks like you're missing something...")
             return
         }
+        logInButton.isEnabled = false
+        showLoading()
         FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            self.logInButton.isEnabled = true
             if ((error) != nil) {
+                self.hideLoading()
                 self.showError(error! as NSError)
             }
             else{
@@ -42,6 +48,22 @@ class MASignInViewController: MABaseViewController {
                 }
             }
         }
+    }
+    
+    func showLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.logInButton.setTitle("", for: .normal)
+            self.activityIndicator = NVActivityIndicatorView(frame: self.logInButton.frame, type: .ballPulse, color: UIColor.white)
+            self.activityIndicator?.startAnimating()
+            self.logInButton.addSubview(self.activityIndicator!)
+        })
+    }
+    func hideLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.logInButton.setTitle("Log In", for: .normal)
+            self.activityIndicator?.stopAnimating()
+            self.activityIndicator?.removeFromSuperview()
+        })
     }
 
     @IBAction func cancelPressed(_ sender: AnyObject) {

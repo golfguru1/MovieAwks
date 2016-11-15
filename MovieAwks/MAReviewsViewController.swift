@@ -59,10 +59,10 @@ class MAReviewsViewController: MABaseViewController, UITableViewDelegate, UITabl
             if (self.reviewsTableView != nil){
                 self.reviewsTableView.reloadData()
             }
-            var ratingVal = -1 as CGFloat
-            if self.reviews.count > 0 {
-                ratingVal = CGFloat(sumOfReviews)/CGFloat(self.reviews.count)
-            }
+//            var ratingVal = -1 as CGFloat
+//            if self.reviews.count > 0 {
+//                ratingVal = CGFloat(sumOfReviews)/CGFloat(self.reviews.count)
+//            }
         })
         
     }

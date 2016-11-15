@@ -11,6 +11,8 @@ import ASValueTrackingSlider
 import Firebase
 import FirebaseDatabase
 import SDWebImage
+import NVActivityIndicatorView
+
 
 class MARatingViewController: MABaseViewController {
 
@@ -24,6 +26,8 @@ class MARatingViewController: MABaseViewController {
     }
     @IBOutlet weak var submitReviewButton: UIButton!{
         didSet{
+            submitReviewButton.layer.cornerRadius = 5
+            submitReviewButton.layer.masksToBounds = true
             submitReviewButton.backgroundColor = UIColor.maPurple()
         }
     }
@@ -40,6 +44,8 @@ class MARatingViewController: MABaseViewController {
         }
     }
     var movie: MAMovie?
+    var activityIndicator: NVActivityIndicatorView?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +77,7 @@ class MARatingViewController: MABaseViewController {
     }
     
     @IBAction func submitPressed(_ sender: AnyObject) {
-        
+        showLoading()
         let date = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
@@ -91,6 +97,7 @@ class MARatingViewController: MABaseViewController {
         let movies = database.child("movies").childByAutoId()
         
         movies.updateChildValues(review) { (error, DB) in
+            self.hideLoading()
             if error != nil {
                 self.showError(error! as NSError)
             }
@@ -102,6 +109,22 @@ class MARatingViewController: MABaseViewController {
 
     @IBAction func cancelPressed(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func showLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.submitReviewButton.setTitle("", for: .normal)
+            self.activityIndicator = NVActivityIndicatorView(frame: self.submitReviewButton.frame, type: .ballPulse, color: UIColor.white)
+            self.activityIndicator?.startAnimating()
+            self.submitReviewButton.addSubview(self.activityIndicator!)
+        })
+    }
+    func hideLoading(){
+        UIView.animate(withDuration: 0.1, animations:{
+            self.submitReviewButton.setTitle("Submit Review", for: .normal)
+            self.activityIndicator?.stopAnimating()
+            self.activityIndicator?.removeFromSuperview()
+        })
     }
     
     //MARK: UITextViewDelegate

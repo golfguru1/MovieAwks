@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MovieAwks.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,6 +62,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0694BFA05E23C1D58ECA33C9F829B827</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>070374204E491EF7E794313D14C6950B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
 		<dict>
 			<key>primary</key>
@@ -67,22 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31780497A5C313B1A1ACDAD184B5DE05</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>37C76CD246D637B8E4C586284A0D96B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>380B15244C4E9FC5F5681F59253B2FC4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>38FB0DABC322BBADE44CBCC60567473B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,6 +108,11 @@
 			<true/>
 		</dict>
 		<key>AB7360021CAA2913AC77DDE689D5A2AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CCDA2CCFD5F4381B903DC82C2291E7DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
