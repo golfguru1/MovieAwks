@@ -2,6 +2,8 @@
 # MovieAwks
 <img src="https://cloud.githubusercontent.com/assets/3711400/20233801/a9a9caa6-a841-11e6-9e21-36ad949cea8c.png" width="20%"></img>
 
+⭐️⭐️ Sign up for the beta: [BETA SIGNUP](https://movieawks.herokuapp.com) ⭐️⭐️ 
+
 MovieAwks is an app that allows users to see how awkward a movie will be to watch with their family/parents. Awkward-ness is rated on a scale of 😇 to 💀 (see below for rating conversion)
 
 I used Firebase as a backend to store all the ratings that users make, and this lovely API: [The Movie DB API](http://docs.themoviedb.apiary.io) which provides both movie info and posters.
