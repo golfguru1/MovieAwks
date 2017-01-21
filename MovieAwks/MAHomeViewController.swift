@@ -31,7 +31,11 @@ class MAHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         didSet{
             titleLabel.text = movieToDisplay!.title!
             synopsisTextView.text = movieToDisplay!.overview!
-            yearLabel.text = movieToDisplay!.releaseDate!
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from: movieToDisplay!.releaseDate!)
+            dateFormatter.dateFormat = "d MMMM yyyy"
+            yearLabel.text = dateFormatter.string(from: date!)
             loadUI()
             
             DispatchQueue.global().async {
