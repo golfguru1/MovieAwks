@@ -12,7 +12,7 @@ pod 'MMDrawerController+Storyboard'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'Alamofire', '~> 4.0'
-pod 'IQKeyboardManager'
+pod 'IQKeyboardManagerSwift'
 pod 'Firebase'
 pod 'Firebase/Auth'
 

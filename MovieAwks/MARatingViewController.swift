@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 import SDWebImage
 import NVActivityIndicatorView
-
+import IQKeyboardManagerSwift
 
 class MARatingViewController: MABaseViewController {
 
@@ -64,11 +64,12 @@ class MARatingViewController: MABaseViewController {
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
+        view.endEditing(true)
         changeEmojiWithValue(round(CGFloat(sender.value)))
     }
     
     @IBAction func sliderDone(_ sender: UISlider) {
-//        sender.setValue(round(sender.value), animated: true)
+
     }
     
     func changeEmojiWithValue(_ value: CGFloat) {

@@ -12,6 +12,7 @@ import Crashlytics
 import Firebase
 import Alamofire
 import CRToast
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -73,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //        
 //        manager?.startListening()\
+        
+        IQKeyboardManager.sharedManager().enable = true
+//        IQKeyboardManager.sharedManager().disabledDistanceHandlingClasses = [MARatingViewController.self]
+//        IQKeyboardManager.sharedManager().disabledToolbarClasses = [MARatingViewController.self]
         
         UIApplication.shared.statusBarStyle = .lightContent
         
